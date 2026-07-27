@@ -228,10 +228,81 @@ footer li{margin:.4rem 0}
   letter-spacing:.18em; text-transform:uppercase}
 .disclaimer ol{margin:0; padding-left:1.2rem; font-size:.88rem; line-height:1.7; color:var(--graphite)}
 .disclaimer li{margin:.55rem 0}
+
+/* ---------- standing notice: prosecutions ---------- */
+.notice{
+  margin:clamp(1.2rem,4vw,2rem) 0 0;
+  border:1px solid rgba(138,43,43,.45);
+  border-left:4px solid var(--oxblood);
+  background:rgba(138,43,43,.055);
+  padding:clamp(1rem,3.2vw,1.5rem) clamp(1rem,3.4vw,1.8rem);
+}
+.notice .notice-strip{
+  display:flex; flex-wrap:wrap; gap:.3rem 1.25rem; justify-content:space-between;
+  font-family:var(--record); font-size:.68rem; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--oxblood); font-weight:600;
+}
+.notice .notice-strip .as-on{color:var(--graphite); font-weight:400}
+.notice h2{
+  font-family:var(--record); font-weight:600;
+  font-size:clamp(.9rem,2.9vw,1.05rem); letter-spacing:.1em; text-transform:uppercase;
+  color:var(--oxblood); margin:.85rem 0 0; line-height:1.5;
+}
+.notice > p{margin:.7rem 0 0; color:var(--ink)}
+.notice ol{list-style:none; margin:1.1rem 0 0; padding:0}
+.notice ol li{margin:0 0 1.05rem; padding-left:2.1rem; position:relative}
+.notice ol li:last-child{margin-bottom:0}
+.notice ol li .num{
+  position:absolute; left:0; top:.15rem;
+  font-family:var(--record); font-size:.72rem; letter-spacing:.1em;
+  color:var(--oxblood); font-weight:600;
+}
+.notice .cite{
+  display:block; font-family:var(--record); font-size:.72rem; letter-spacing:.06em;
+  color:var(--oxblood); line-height:1.7; text-transform:none;
+}
+.notice .pos{margin:.35rem 0 0}
+.notice .foot{
+  margin:1.15rem 0 0; padding-top:.85rem; border-top:1px solid rgba(138,43,43,.25);
+  font-family:var(--record); font-size:.7rem; letter-spacing:.05em;
+  line-height:1.75; color:var(--graphite);
+}
+@media (max-width:34rem){
+  .notice ol li{padding-left:1.7rem}
+}
+@media print{
+  .notice{background:none; border-left-width:3px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
+
+<aside class="notice" id="status" role="note" aria-label="Standing notice — prosecutions pending">
+  <div class="notice-strip">
+    <span>Standing notice</span>
+    <span class="as-on">Position as on 27.07.2026</span>
+  </div>
+
+  <h2>Prosecutions instituted against me &mdash; present position</h2>
+
+  <p>Two prosecutions stand instituted at the instance of the State. Both are set out below. No finding of guilt has been recorded in either matter.</p>
+
+  <ol>
+    <li>
+      <span class="num">I.</span>
+      <span class="cite">FIR No. 373/2009, Police Station Vasant Vihar, New Delhi &middot; Cr. Case No. 5A/02/2013 (50801/2016), Court of the Judicial Magistrate First Class, Patiala House Courts, New Delhi</span>
+      <p class="pos">Upon retrieval of the digital evidence, sanction for prosecution has been sought against the police officials concerned. The matter remains at the stage of prosecution evidence.</p>
+    </li>
+    <li>
+      <span class="num">II.</span>
+      <span class="cite">FIR No. 225/2016 &middot; Case No. 97507/2016, Saket Courts, New Delhi</span>
+      <p class="pos">No trial has proceeded. The State has itself returned a nil report as regards the forensic evidence. The application for discharge is on record and awaits adjudication.</p>
+    </li>
+  </ol>
+
+  <p class="foot">Each statement above is tied to a document on the record of the court concerned and can be called for and checked. Where a matter rests on a pleading rather than on a finding, it is stated as a pleading.</p>
+</aside>
 
 <header class="masthead">
   <div class="strip">
