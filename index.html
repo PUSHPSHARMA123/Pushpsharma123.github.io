@@ -98,7 +98,11 @@
   .role span{white-space:nowrap}
   .standfirst{
     max-width:46ch;font-size:clamp(1.08rem,1rem + .45vw,1.35rem);
-    line-height:1.5;font-weight:300;margin:0 0 2.6rem;
+    line-height:1.5;font-weight:300;margin:0 0 1.4rem;
+  }
+  .bio{
+    max-width:var(--measure);font-size:1rem;line-height:1.65;
+    color:var(--paper-dim);margin:0 0 2.6rem;
   }
   .credentials{
     border-top:1px solid var(--rule-strong);
@@ -292,12 +296,14 @@
   <div class="wrap">
     <p class="eyebrow">Chandigarh · India</p>
     <h1>Pushp Kumar<br>Sharma</h1>
-    <p class="role">Investigative Journalist <span>· Constitutional Researcher</span> <span>· Petitioner-in-Person</span></p>
-    <p class="standfirst">Two decades of investigative reporting. Now litigating in person before the Supreme Court of India on forensic integrity, digital evidence and AI transparency in the criminal process.</p>
+    <p class="role">Investigative Journalist <span>· Constitutional Researcher</span></p>
+    <p class="standfirst">Two decades of investigative reporting. Now litigating constitutional questions of forensic integrity, digital evidence and AI transparency in the criminal process before the Supreme Court of India.</p>
+    <p class="bio">He now appears as Petitioner-in-Person before the High Court of Delhi, the High Court of Punjab &amp; Haryana, and the Supreme Court of India. In the course of his journalism, more than fifty-four FIRs and criminal cases were registered against him across several States; the large majority have since been quashed, withdrawn or settled, and three remain pending. Those three, together with two constitutional public-interest petitions, are set out below.</p>
 
     <div class="credentials">
       <div class="cred"><b>2011</b><span>International Press Institute Award, Vienna — Excellence in Journalism</span></div>
       <div class="cred"><b>2018–23</b><span>Foreign Press Association, London — full member</span></div>
+      <div class="cred"><b>Training</b><span>Internship with a senior lawyer practising before the Supreme Court of India, the High Court of Delhi and the Punjab &amp; Haryana High Court</span></div>
       <div class="cred"><b>Study</b><span class="cred-quiet">LL.B., 2026 · Cleared the All India Bar Examination, 2026 · B.A., CCS University, 1991 · Alumnus and senior incubatee, N.S. Raghavan Centre for Entrepreneurial Learning, IIM Bangalore</span></div>
     </div>
   </div>
@@ -439,14 +445,7 @@
 <section id="pil">
   <div class="wrap">
     <div class="head"><span class="para">¶ 3</span><h2>Public interest litigation</h2></div>
-    <p class="note">Filed in person under Article 32 before the Supreme Court of India. No diary numbers are published here.</p>
-
-    <div class="filters" role="group" aria-label="Filter public interest litigation by stage">
-      <button data-filter="all" aria-pressed="true">All</button>
-      <button data-filter="filed" aria-pressed="false">Filed</button>
-      <button data-filter="prep" aria-pressed="false">In preparation</button>
-    </div>
-    <p class="count" id="count"></p>
+    <p class="note">Filed under Article 32 before the Supreme Court of India. No diary numbers are published here.</p>
 
     <details class="matter pil" data-status="filed">
       <summary>
@@ -474,51 +473,12 @@
 
     <details class="matter pil" data-status="filed">
       <summary>
-        <p class="m-title">National Forensic Integrity Framework</p>
-        <p class="docket"><span class="pill sc">Filed</span> Contamination control · chain of custody</p>
+        <p class="m-title">National Forensic Elimination Database</p>
+        <p class="docket"><span class="pill sc">Filed</span> Articles 14 · 21</p>
       </summary>
       <div class="m-body">
-        <p>Contamination control, human chain of custody, and elimination protocols — the safeguards that determine whether a forensic result can be trusted at all.</p>
-      </div>
-    </details>
-
-    <details class="matter pil" data-status="filed">
-      <summary>
-        <p class="m-title">Synthetic and deepfake evidence</p>
-        <p class="docket"><span class="pill sc">Filed</span> AI-generated evidence and citations</p>
-      </summary>
-      <div class="m-body">
-        <p>AI-generated evidence, AI-hallucinated citations and AI-drafted affidavits, and the threat each poses to the integrity of the judicial record.</p>
-      </div>
-    </details>
-
-    <details class="matter pil" data-status="prep">
-      <summary>
-        <p class="m-title">Judicial AI transparency and accountability</p>
-        <p class="docket"><span class="pill prep">In preparation</span></p>
-      </summary>
-      <div class="m-body">
-        <p>Mandatory disclosure, sworn human verification, and the personal responsibility of the filer for any AI-assisted filing. It creates no new offence and leaves every consequence to existing judicial discretion.</p>
-      </div>
-    </details>
-
-    <details class="matter pil" data-status="prep">
-      <summary>
-        <p class="m-title">Digital evidence authentication</p>
-        <p class="docket"><span class="pill prep">In preparation</span> s. 105 BNSS · s. 63 BSA</p>
-      </summary>
-      <div class="m-body">
-        <p>Where the investigating agency conducts the search, records it, retains custody of the recording and produces it, the entire lifecycle of the evidence sits with a single authority. Recording does not create verification.</p>
-      </div>
-    </details>
-
-    <details class="matter pil" data-status="prep">
-      <summary>
-        <p class="m-title">National Digital Registry of Advocates</p>
-        <p class="docket"><span class="pill prep">In preparation</span> Privacy and proportionality</p>
-      </summary>
-      <div class="m-body">
-        <p>A proportionality challenge to the public disclosure function of the proposed registry, under Articles 14, 19(1)(g) and 21.</p>
+        <p>A contamination-control framework for the criminal process: a national elimination database, a human chain of custody, and first-responder protocols, so that material introduced by those who handle a scene can be identified and excluded rather than attributed to an accused.</p>
+        <p>The relief sought is institutional and prospective — the framing of national minimum standards, not the invalidation of any statute.</p>
       </div>
     </details>
   </div>
@@ -575,38 +535,12 @@
 
 <footer>
   <div class="wrap">
-    <p>Pushp Kumar Sharma · Investigative Journalist · Petitioner-in-Person<br>
+    <p>Pushp Kumar Sharma · Investigative Journalist · Constitutional Researcher<br>
     Case numbers, dates and stages are stated from the record and are correct as at the date of publication. Nothing on this page is legal advice.</p>
   </div>
 </footer>
 
 <script>
-/* ---- PIL stage filter ---- */
-(function(){
-  var buttons = document.querySelectorAll('.filters button');
-  var items   = document.querySelectorAll('.matter.pil');
-  var countEl = document.getElementById('count');
-
-  function apply(filter){
-    var shown = 0;
-    items.forEach(function(el){
-      var match = (filter === 'all') || (el.dataset.status === filter);
-      el.style.display = match ? '' : 'none';
-      if(match) shown++;
-      if(!match) el.open = false;
-    });
-    countEl.textContent = shown + (shown === 1 ? ' matter' : ' matters');
-  }
-
-  buttons.forEach(function(b){
-    b.addEventListener('click', function(){
-      buttons.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      apply(b.dataset.filter);
-    });
-  });
-  apply('all');
-})();
-
 /* ---- Contact form guard: blocks submission until the endpoint is set ---- */
 (function(){
   var form = document.getElementById('contactForm');
