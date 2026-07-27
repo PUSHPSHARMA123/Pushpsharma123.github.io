@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ============================================================
+  HOW TO PUBLISH (GitHub Pages)
+  1. Create a repository named:  <your-username>.github.io
+  2. Upload this file as:        index.html
+  3. Settings > Pages > Deploy from branch > main / root > Save
+  4. Your site goes live at:     https://<your-username>.github.io
+  A custom domain can be attached later (Settings > Pages > Custom domain).
+
+  HOW TO EDIT CASES
+  Everything lives in the CASES array further down (search "const CASES").
+  Edit one entry to change a title, status, facts, or add a document link.
+  VERIFY every case number, date and status against the record before
+  publishing. Docket numbers marked "verify" must be confirmed.
+  ============================================================
+-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pushp Kumar Sharma — Litigation Record</title>
+<meta name="description" content="A public record of constitutional litigation, public-interest proceedings, and case documents." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F7F6F2;
+    --paper-2:#FFFFFF;
+    --ink:#1C1B29;
+    --ink-soft:#4a4954;
+    --muted:#6f6e67;
+    --oxblood:#7A1F2B;
+    --oxblood-deep:#5c1620;
+    --brass:#8a5e22;
+    --line:rgba(28,27,41,.14);
+    --line-soft:rgba(28,27,41,.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Spectral",Georgia,serif;font-weight:400;
+    font-size:18px;line-height:1.62;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px;}
+
+  /* ---- Masthead ---- */
+  header.mast{padding:64px 0 0;}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--oxblood);margin:0 0 20px;
+  }
+  h1.name{
+    font-family:"Libre Caslon Display",serif;font-weight:400;
+    font-size:clamp(38px,8vw,68px);line-height:1.02;letter-spacing:.005em;
+    margin:0 0 16px;
+  }
+  .roles{
+    font-size:16px;color:var(--ink-soft);font-weight:500;letter-spacing:.01em;
+    margin:0 0 26px;
+  }
+  .roles span{white-space:nowrap;}
+  .roles i{color:var(--oxblood);font-style:normal;padding:0 8px;}
+  .ribbon{height:3px;background:var(--oxblood);width:100%;margin:0;border:0;}
+  .standfirst{
+    font-size:19px;color:var(--ink-soft);max-width:62ch;margin:30px 0 8px;
+    font-weight:300;
+  }
+
+  /* ---- Controls ---- */
+  .controls{
+    display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    margin:34px 0 8px;padding-top:26px;border-top:1px solid var(--line-soft);
+  }
+  .controls .lbl{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin-right:6px;
+  }
+  .filter{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;
+    background:transparent;border:1px solid var(--line);color:var(--ink-soft);
+    padding:7px 13px;border-radius:2px;cursor:pointer;transition:all .15s ease;
+  }
+  .filter:hover{border-color:var(--oxblood);color:var(--oxblood);}
+  .filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+  .count{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-left:auto;}
+
+  /* ---- Case list ---- */
+  main{padding:14px 0 40px;}
+  .case{border-bottom:1px solid var(--line);}
+  .case.hidden{display:none;}
+  .case-head{
+    width:100%;text-align:left;background:transparent;border:0;cursor:pointer;
+    padding:26px 44px 26px 0;position:relative;color:inherit;font-family:inherit;
+    display:block;
+  }
+  .case-head:focus-visible{outline:2px solid var(--oxblood);outline-offset:4px;}
+  .docket{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.04em;
+    color:var(--ink-soft);border-left:2px solid var(--oxblood);padding-left:9px;
+    margin:0 0 9px;display:inline-block;
+  }
+  .case-title{
+    font-size:22px;font-weight:600;line-height:1.28;margin:0 0 12px;letter-spacing:.003em;
+  }
+  .meta{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .badge{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;padding:4px 10px;border-radius:2px;font-weight:500;
+  }
+  .badge.court{background:rgba(122,31,43,.10);color:var(--oxblood-deep);}
+  .badge.prep{background:rgba(138,94,34,.12);color:var(--brass);}
+  .badge.concl{background:rgba(28,27,41,.07);color:var(--muted);}
+  .forum{font-size:14.5px;color:var(--muted);}
+  .chev{
+    position:absolute;right:2px;top:28px;width:14px;height:14px;
+    border-right:2px solid var(--oxblood);border-bottom:2px solid var(--oxblood);
+    transform:rotate(45deg);transition:transform .25s ease;
+  }
+  .case[open-state="1"] .chev{transform:rotate(225deg);}
+
+  .panel{overflow:hidden;height:0;transition:height .28s ease;}
+  .panel-inner{padding:2px 0 30px;}
+  .row{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--line-soft);}
+  .row:first-child{border-top:0;}
+  .row dt{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);padding-top:3px;
+  }
+  .row dd{margin:0;font-size:16.5px;color:var(--ink-soft);}
+  .row dd strong{color:var(--ink);font-weight:600;}
+  .todo{color:var(--brass);font-style:italic;}
+  .docs a{
+    display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:12.5px;
+    color:var(--oxblood);text-decoration:none;border-bottom:1px solid rgba(122,31,43,.3);
+    margin:0 16px 6px 0;padding-bottom:1px;
+  }
+  .docs a:hover{border-bottom-color:var(--oxblood);}
+  .docs .placeholder{color:var(--muted);font-style:italic;border:0;}
+
+  @media (max-width:560px){
+    body{font-size:17px;}
+    .row{grid-template-columns:1fr;gap:3px;}
+    .case-title{font-size:19px;}
+    .count{width:100%;margin:6px 0 0;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;scroll-behavior:auto;}
+  }
+
+  /* ---- Footer ---- */
+  footer{border-top:3px solid var(--oxblood);padding:34px 0 70px;margin-top:10px;}
+  footer p{font-size:14.5px;color:var(--muted);margin:0 0 8px;max-width:64ch;}
+  footer .place{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;
+    color:var(--ink-soft);text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="mast">
+    <p class="eyebrow">Litigation &amp; Constitutional Record</p>
+    <h1 class="name">Pushp Kumar Sharma</h1>
+    <p class="roles">
+      <span>Investigative Journalist</span><i>·</i><span>Constitutional Researcher</span><i>·</i><span>Petitioner-in-Person</span>
+    </p>
+  </header>
+</div>
+<hr class="ribbon" />
+<div class="wrap">
+  <p class="standfirst">
+    A public record of proceedings and constitutional research. Each entry states its present position; select an entry to read the facts and the documents on record.
+  </p>
+
+  <div class="controls" role="group" aria-label="Filter cases by status">
+    <span class="lbl">Show</span>
+    <button class="filter" data-filter="all" aria-pressed="true">All</button>
+    <button class="filter" data-filter="court" aria-pressed="false">Before a court</button>
+    <button class="filter" data-filter="prep" aria-pressed="false">In preparation</button>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<div class="wrap">
+  <main id="list" aria-live="polite"></main>
+</div>
+
+<div class="wrap">
+  <footer>
+    <p>
+      Court orders and judgments reproduced here are public documents. Material authored by others is linked to its source rather than reproduced. Matters that are sub judice are stated in neutral, procedural terms.
+    </p>
+    <p class="place">Drawn, verified and signed at Chandigarh · District SAS Nagar (Mohali), Punjab</p>
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   CASE DATA — edit here. Fields:
+   docket   : case / diary number (mono stamp)
+   title    : short case name
+   status   : "court"  -> Before a court   (oxblood badge)
+              "prep"   -> In preparation   (brass badge)
+              "concl"  -> Concluded        (grey badge)
+   badge    : text shown in the status badge
+   forum    : court / forum, shown next to the badge
+   nature   : one-line description
+   position : CURRENT POSITION (the live status)
+   facts    : the facts / chronology (HTML allowed)
+   docs     : array of {label, href}. Use href:"" for a
+              not-yet-uploaded document (renders greyed out).
+   ============================================================ */
+const CASES = [
+  {
+    docket:"Cr. Case No. 5A/02/2013 (50801/2016) · FIR 373/2009, PS Vasant Vihar",
+    title:"State v. Pushp Sharma — Delhi (2009)",
+    status:"court", badge:"Before a court",
+    forum:"JMFC-07, Patiala House Courts, New Delhi",
+    nature:"Criminal prosecution arising from the petitioner's investigative reporting.",
+    position:"<strong>Pending — at the prosecution-evidence stage.</strong> Connected proceedings before CJM Chandigarh (PCH-1493-2020), the High Court of Punjab &amp; Haryana (CWP 4352/2026) and the Supreme Court (SLP(C) Diary 23383/2026).",
+    facts:"Two material witnesses — a prosecution witness and the principal complainant — have since died and remain unexamined. Applications are on record / drafted for closure of prosecution evidence, for protection under Article 21, and under Section 175(3) BNSS. <span class='todo'>[Insert verified substantive facts of the allegation as you wish them stated.]</span>",
+    docs:[{label:"FIR 373/2009",href:""},{label:"Order 08.05.2025 (CJM Chandigarh)",href:""}]
+  },
+  {
+    docket:"FIR 202/2012 · Case No. 2130/2016 · TP(Crl.) 100/2026",
+    title:"State v. Pushp Sharma — Haridwar (2012)",
+    status:"court", badge:"Before a court",
+    forum:"Supreme Court of India (transfer petition)",
+    nature:"Criminal prosecution; transfer sought to a court of competent jurisdiction.",
+    position:"<strong>Pending — Transfer Petition (Criminal) No. 100/2026 before the Supreme Court of India.</strong>",
+    facts:"<span class='todo'>[Insert verified procedural chronology and the grounds for transfer as pleaded.]</span>",
+    docs:[{label:"Transfer Petition",href:""}]
+  },
+  {
+    docket:"FIR 225/2016 · Case No. 97507/2016",
+    title:"State v. Pushp Sharma — Delhi (2016)",
+    status:"court", badge:"Before a court",
+    forum:"Saket Courts, New Delhi",
+    nature:"Criminal prosecution arising from the petitioner's investigative reporting.",
+    position:"<strong>Pending — discharge application.</strong>",
+    facts:"<span class='todo'>[Insert verified procedural posture and grounds of the discharge application.]</span>",
+    docs:[{label:"Discharge Application",href:""}]
+  },
+  {
+    docket:"SLP (Civil) Diary No. 23383/2026 · from CWP 4352/2026",
+    title:"Deemed Sanction under Section 218(1) BNSS",
+    status:"court", badge:"Before a court",
+    forum:"Supreme Court of India",
+    nature:"Special Leave Petition on the crystallisation of deemed sanction to prosecute.",
+    position:"<strong>Filed — under e-filing / listing.</strong> A contempt petition (COCP) is also on record before the High Court of Punjab &amp; Haryana.",
+    facts:"Challenges the grant of further time to the State notwithstanding that deemed sanction had crystallised under the second proviso to Section 218(1) BNSS on expiry of 120 days from 23.10.2025 (i.e. 20.02.2026). A Speaking Order dated 08.07.2026 of the Additional Chief Secretary (Home), Punjab has been placed on record as a subsequent event and analysed for infirmity.",
+    docs:[{label:"Synopsis &amp; List of Dates",href:""},{label:"Speaking Order 08.07.2026",href:""},{label:"RTI reply 30.03.2026",href:""}]
+  },
+  {
+    docket:"W.P.(C) · Doctrine of Forensic Equality  [verify diary no.]",
+    title:"National Forensic Integrity Framework (PIL)",
+    status:"court", badge:"Before a court",
+    forum:"Supreme Court of India",
+    nature:"Public-interest litigation on structural forensic asymmetry between State and accused.",
+    position:"<strong>Pending — registry objections cured.</strong> An earlier diary number was withdrawn to avoid multiplicity and the matter consolidated. <span class='todo'>[Confirm the operative diary number before publishing.]</span>",
+    facts:"Invokes Articles 14, 21 and 39-A and seeks constitution of an Expert Committee to frame a National Forensic Integrity Framework — contamination-control, a Human Chain of Custody, elimination protocols, and independent forensic assistance for the accused.",
+    docs:[{label:"Synopsis",href:""},{label:"Main Petition (Grounds)",href:""}]
+  },
+  {
+    docket:"PIL · Section 105 BNSS / Section 63 BSA",
+    title:"Digital Evidence Authentication (ABCDE Protocol)",
+    status:"prep", badge:"In preparation",
+    forum:"Supreme Court of India (proposed)",
+    nature:"Constitutional challenge to the State's exclusive control over authentication of digital evidence.",
+    position:"<strong>In preparation.</strong>",
+    facts:"Advances the ABCDE Protocol — Acquire-and-seal, Bilateral custody, Cryptographic verification, Disclosure, and Exceptional independent examination — as an illustrative constitutional safeguard.",
+    docs:[{label:"Draft Synopsis",href:""}]
+  },
+  {
+    docket:"PIL · Article 32",
+    title:"AI Transparency &amp; Judicial Integrity",
+    status:"prep", badge:"In preparation",
+    forum:"Supreme Court of India (proposed)",
+    nature:"Public-interest litigation on synthetic evidence and AI-assisted filings.",
+    position:"<strong>In preparation — Stage 1 (Synopsis and List of Dates) drafted.</strong>",
+    facts:"Addresses AI-hallucinated citations, synthetic / deepfake evidence and AI-generated affidavits; seeks mandatory disclosure, sworn human verification and personal responsibility for AI-assisted filings under a Judicial Accountability Principle. Proposed respondents include the Union of India, BCI, the e-Committee of the Supreme Court and MeitY.",
+    docs:[{label:"Synopsis (Stage 1)",href:""}]
+  },
+  {
+    docket:"PIL · Articles 14, 19(1)(g), 21",
+    title:"National Digital Registry of Advocates",
+    status:"prep", badge:"In preparation",
+    forum:"Supreme Court of India (proposed)",
+    nature:"Proportionality challenge to the public-disclosure function of the proposed BCI registry.",
+    position:"<strong>In preparation.</strong>",
+    facts:"Applies the four-pronged proportionality test in K.S. Puttaswamy to the public-disclosure function of the proposed national advocate registry.",
+    docs:[{label:"Draft Petition",href:""}]
+  },
+  {
+    docket:"Civil Suit · Sections 38–39 SRA · IT Act &amp; Rules 2021",
+    title:"De-indexing — v. Union of India &amp; Intermediaries",
+    status:"court", badge:"For filing",
+    forum:"Civil Judge (Senior Division), Chandigarh",
+    nature:"Suit for de-indexing of online material against the Union and intermediaries.",
+    position:"<strong>For filing (30.07.2026).</strong>",
+    facts:"Seeks a decree operating as the order contemplated by Section 79(3)(b) of the IT Act, enabling intermediaries to comply while retaining safe harbour. Accompanied by a Section 80(2) CPC application, an Order XXXIX injunction application and a Section 63 BSA certificate.",
+    docs:[{label:"Plaint",href:""},{label:"Index of Documents",href:""}]
+  },
+  {
+    docket:"CWP · Article 226",
+    title:"Panjab University LL.M. — Fee for OMR Copy",
+    status:"prep", badge:"In preparation",
+    forum:"High Court of Punjab &amp; Haryana",
+    nature:"Writ challenging a fee levied for a photocopy of a candidate's own answer sheet.",
+    position:"<strong>In preparation.</strong>",
+    facts:"Challenges the levy for a photocopy of one's own OMR answer sheet as arbitrary and disproportionate. Principal authorities settled: Kanpur University (1983) 4 SCC 309; Manish Ujwal (2005) 13 SCC 744; Ran Vijay Singh (2018) 2 SCC 357; UPSC v. Rahul Singh (2018) 7 SCC 254; H.P. PSC v. Mukesh Thakur (2010) 6 SCC 759; Whirlpool (1998) 8 SCC 1.",
+    docs:[{label:"Draft Petition (Grounds A–M)",href:""}]
+  },
+  {
+    docket:"CWP · Family pension",
+    title:"Santosh Chauhan &amp; Ors. v. State of Punjab &amp; Ors.",
+    status:"prep", badge:"In preparation",
+    forum:"High Court of Punjab &amp; Haryana",
+    nature:"Writ for restoration / re-fixation of family pension following acquittal.",
+    position:"<strong>In preparation — paper-book and annexures (P-1 to P-11) being finalised.</strong>",
+    facts:"Seeks restoration and re-fixation, on the substantive AFSO scale, of the family pension of the widow and children of the Late Sh. Bhupinder Singh Chauhan (AFSO), who was acquitted by the Fast Track Court, Mansa, on 30.07.2009.",
+    docs:[{label:"Paper-book (v18)",href:""},{label:"Annexures P-1 to P-11",href:""}]
+  },
+  {
+    docket:"Approx. 54 proceedings · c. 1991–2023",
+    title:"Proceedings arising from investigative journalism",
+    status:"concl", badge:"Largely concluded",
+    forum:"Various fora",
+    nature:"Proceedings arising over two decades of investigative reporting.",
+    position:"<strong>The large majority stand concluded.</strong> The live and in-preparation matters are those listed above.",
+    facts:"Of approximately fifty-four proceedings connected to the petitioner's investigative journalism, the greater part have concluded. A consolidated schedule can be provided on request.",
+    docs:[{label:"Schedule of concluded matters",href:""}]
+  }
+];
+
+/* ---- Render ---- */
+const list = document.getElementById('list');
+const countEl = document.getElementById('count');
+
+CASES.forEach((c, i) => {
+  const art = document.createElement('article');
+  art.className = 'case';
+  art.dataset.status = c.status;
+  art.setAttribute('open-state','0');
+
+  const docsHtml = c.docs && c.docs.length
+    ? c.docs.map(d => d.href
+        ? `<a href="${d.href}">${d.label} \u2197</a>`
+        : `<span class="placeholder">${d.label} — to upload</span>`).join('')
+    : '<span class="placeholder">No documents linked yet</span>';
+
+  art.innerHTML = `
+    <button class="case-head" aria-expanded="false" aria-controls="p${i}">
+      <span class="docket">${c.docket}</span>
+      <span class="case-title">${c.title}</span>
+      <span class="meta">
+        <span class="badge ${c.status}">${c.badge}</span>
+        <span class="forum">${c.forum}</span>
+      </span>
+      <span class="chev" aria-hidden="true"></span>
+    </button>
+    <div class="panel" id="p${i}" role="region">
+      <div class="panel-inner">
+        <dl>
+          <div class="row"><dt>Nature</dt><dd>${c.nature}</dd></div>
+          <div class="row"><dt>Current position</dt><dd>${c.position}</dd></div>
+          <div class="row"><dt>Facts</dt><dd>${c.facts}</dd></div>
+          <div class="row"><dt>Documents</dt><dd class="docs">${docsHtml}</dd></div>
+        </dl>
+      </div>
+    </div>`;
+  list.appendChild(art);
+
+  const head = art.querySelector('.case-head');
+  const panel = art.querySelector('.panel');
+  head.addEventListener('click', () => {
+    const open = art.getAttribute('open-state') === '1';
+    if (open){
+      panel.style.height = panel.scrollHeight + 'px';
+      requestAnimationFrame(() => { panel.style.height = '0px'; });
+      art.setAttribute('open-state','0');
+      head.setAttribute('aria-expanded','false');
+    } else {
+      panel.style.height = panel.scrollHeight + 'px';
+      panel.addEventListener('transitionend', function te(){
+        if (art.getAttribute('open-state') === '1') panel.style.height = 'auto';
+        panel.removeEventListener('transitionend', te);
+      });
+      art.setAttribute('open-state','1');
+      head.setAttribute('aria-expanded','true');
+    }
+  });
+});
+
+/* ---- Filter ---- */
+const buttons = document.querySelectorAll('.filter');
+function applyFilter(f){
+  let shown = 0;
+  document.querySelectorAll('.case').forEach(c => {
+    const match = f === 'all' || c.dataset.status === f;
+    c.classList.toggle('hidden', !match);
+    if (match) shown++;
+  });
+  countEl.textContent = shown + (shown === 1 ? ' matter' : ' matters');
+}
+buttons.forEach(b => b.addEventListener('click', () => {
+  buttons.forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  applyFilter(b.dataset.filter);
+}));
+applyFilter('all');
+</script>
+</body>
+</html>
