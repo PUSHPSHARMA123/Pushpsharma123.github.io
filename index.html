@@ -401,6 +401,31 @@ footer li{margin:.4rem 0}
   margin:1.1rem 0 0; padding-top:.9rem; border-top:1px solid var(--rule);
   font-family:var(--record); font-size:.7rem; letter-spacing:.06em; color:var(--graphite);
 }
+
+.contact .warn{
+  margin:0 0 1.2rem; padding:.9rem 1rem;
+  border:1px solid rgba(138,43,43,.4); border-left:3px solid var(--oxblood);
+  background:rgba(138,43,43,.05);
+}
+.contact .warn strong{
+  display:block; font-family:var(--record); font-weight:600; font-size:.66rem;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--oxblood); margin:0 0 .5rem;
+}
+.contact .warn p{margin:0 0 .55rem; font-size:.85rem; line-height:1.7; color:var(--ink)}
+.contact .warn p:last-child{margin:0}
+.contact .warn .hard{color:var(--oxblood); font-weight:600}
+.contact select{
+  width:100%; background:var(--vellum); color:var(--ink);
+  border:1px solid var(--rule); border-radius:0; padding:.6rem .7rem;
+  font-family:var(--prose); font-size:1rem; -webkit-appearance:none; appearance:none;
+}
+.contact select:focus{outline:none; border-color:var(--oxblood); box-shadow:0 0 0 1px var(--oxblood)}
+.contact .ack{display:flex; gap:.6rem; align-items:flex-start}
+.contact .ack input{width:auto; margin-top:.25rem; accent-color:var(--oxblood); flex:0 0 auto}
+.contact .ack label{
+  font-family:var(--prose); font-size:.85rem; letter-spacing:0; text-transform:none;
+  color:var(--graphite); line-height:1.6; margin:0;
+}
 @media print{ .contact form{display:none} }
 </style>
 </head>
@@ -979,11 +1004,30 @@ footer li{margin:.4rem 0}
   <h4>Contact</h4>
   <p>Write here on anything arising from this record &mdash; a correction, a document, a press enquiry, or a request to verify a case particular. Messages are delivered to me by email.</p>
 
+
+  <div class="warn">
+    <strong>Notice before you write</strong>
+    <p>This form is monitored. Every submission is retained &mdash; the name and email address entered, the message in full, and the date and time of receipt.</p>
+    <p>A message conveying a threat, or one that is abusive, obscene or intimidatory, will be preserved in its original form together with the record of its transmission and referred to the jurisdictional police and to the Cyber Crime Cell, and a complaint will be pursued under Section 351 of the Bharatiya Nyaya Sanhita, 2023 &mdash; sub-section (4) whereof deals specifically with criminal intimidation by anonymous communication or by a sender concealing his name or address &mdash; and under Section 67 of the Information Technology Act, 2000.</p>
+    <p class="hard">Correspondence is welcome. Abuse is not, and it is not anonymous.</p>
+  </div>
+
   <form action="https://formsubmit.co/pushpindian@gmail.com" method="POST">
     <input type="hidden" name="_subject" value="Website enquiry &mdash; pushpsharma.in">
     <input type="hidden" name="_template" value="table">
     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
+    <div>
+      <label for="cpurpose">Purpose</label>
+      <select id="cpurpose" name="purpose" required>
+        <option value="">Select one</option>
+        <option>Correction to this record</option>
+        <option>Press or media enquiry</option>
+        <option>Document or reference</option>
+        <option>Court or official communication</option>
+        <option>Other</option>
+      </select>
+    </div>
     <div>
       <label for="cname">Your name</label>
       <input type="text" id="cname" name="name" required autocomplete="name">
@@ -995,6 +1039,11 @@ footer li{margin:.4rem 0}
     <div>
       <label for="cmsg">Message</label>
       <textarea id="cmsg" name="message" required></textarea>
+    </div>
+
+    <div class="ack">
+      <input type="checkbox" id="cack" name="acknowledged" value="Yes &mdash; notice read" required>
+      <label for="cack">I have read the notice above and confirm that this message is sent in good faith.</label>
     </div>
 
     <button type="submit" class="send">Send message</button>
