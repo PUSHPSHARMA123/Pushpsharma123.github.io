@@ -229,42 +229,58 @@ footer li{margin:.4rem 0}
 .disclaimer ol{margin:0; padding-left:1.2rem; font-size:.88rem; line-height:1.7; color:var(--graphite)}
 .disclaimer li{margin:.55rem 0}
 
-/* ---------- standing notice: prosecutions, year-wise ---------- */
-.notice{
-  margin:clamp(1.2rem,4vw,2rem) 0 0;
-  border:1px solid rgba(138,43,43,.42);
-  border-left:4px solid var(--oxblood);
-  background:rgba(138,43,43,.05);
-  padding:clamp(1rem,3.2vw,1.6rem) clamp(1rem,3.4vw,1.9rem);
-}
-.notice-strip{
-  display:flex; flex-wrap:wrap; gap:.3rem 1.25rem; justify-content:space-between;
-  font-family:var(--record); font-size:.68rem; letter-spacing:.15em;
-  text-transform:uppercase; color:var(--oxblood); font-weight:600;
-}
-.notice-strip .as-on{color:var(--graphite); font-weight:400}
-.notice h2{
-  font-family:var(--record); font-weight:600;
-  font-size:clamp(.88rem,2.9vw,1.05rem); letter-spacing:.1em; text-transform:uppercase;
-  color:var(--oxblood); margin:.85rem 0 0; line-height:1.55;
-}
-.notice > p.lede{margin:.7rem 0 0; color:var(--ink)}
 
-.yr{margin:clamp(1.4rem,4vw,1.9rem) 0 0}
+/* ---------- standing alert: prosecutions ---------- */
+.alert{margin:0}
+.alert-inner{max-width:60rem; margin:0 auto; padding:0 var(--gut)}
+
+.alert-bar{
+  background:var(--oxblood); color:var(--stone);
+  padding:clamp(1.1rem,3.6vw,1.7rem) 0 clamp(.9rem,3vw,1.3rem);
+}
+.alert-kicker{
+  display:block; font-family:var(--record); font-size:.63rem;
+  letter-spacing:.26em; text-transform:uppercase; opacity:.78;
+}
+.alert-title{
+  margin:.55rem 0 0; font-family:var(--record); font-weight:600;
+  font-size:clamp(1.02rem,4.6vw,1.85rem); letter-spacing:clamp(.08em,.5vw,.16em);
+  text-transform:uppercase; line-height:1.35;
+}
+.alert-meta{
+  display:flex; flex-wrap:wrap; margin:.85rem 0 0; padding-top:.65rem;
+  border-top:1px solid rgba(230,231,225,.32);
+  font-family:var(--record); font-size:.64rem; letter-spacing:.13em;
+  text-transform:uppercase; opacity:.9;
+}
+.alert-meta span + span::before{content:"\2022"; margin:0 .6rem; opacity:.55}
+
+.alert-body{
+  background:var(--vellum);
+  border-bottom:3px solid var(--oxblood);
+  padding:clamp(1rem,3.4vw,1.7rem) 0 clamp(1.3rem,4.4vw,2.1rem);
+}
+.alert-lede{margin:0; color:var(--ink)}
+
+.yr{margin:clamp(1.3rem,4vw,1.8rem) 0 0}
 .yr + .yr{
-  padding-top:clamp(1.3rem,3.6vw,1.7rem);
+  padding-top:clamp(1.3rem,3.6vw,1.8rem);
   border-top:1px solid rgba(138,43,43,.22);
 }
 .yr-head{display:flex; align-items:baseline; gap:.9rem}
 .yr-n{
   font-family:var(--record); font-weight:600; color:var(--oxblood);
-  font-size:clamp(1.5rem,6vw,2.15rem); letter-spacing:.1em; line-height:1;
+  font-size:clamp(1.7rem,7vw,2.6rem); letter-spacing:.1em; line-height:1;
 }
 .yr-rule{flex:1; height:1px; background:rgba(138,43,43,.3)}
 .yr-tag{
   font-family:var(--record); font-size:.62rem; letter-spacing:.14em;
   text-transform:uppercase; color:var(--graphite);
   border:1px solid var(--rule); padding:.2rem .5rem; white-space:nowrap;
+}
+.yr-body{
+  display:grid; grid-template-columns:1fr auto;
+  gap:clamp(1rem,3vw,2.2rem); align-items:start; margin-top:.4rem;
 }
 .yr .cite{
   display:block; margin:.75rem 0 0;
@@ -277,56 +293,179 @@ footer li{margin:.4rem 0}
   font-family:var(--record); font-size:.65rem; letter-spacing:.1em;
   text-transform:uppercase; color:var(--graphite);
 }
-.notice .foot{
-  margin:1.3rem 0 0; padding-top:.9rem; border-top:1px solid rgba(138,43,43,.25);
+
+/* ---------- status seal ---------- */
+.case-seal{margin:.4rem 0 0; justify-self:end}
+.case-seal svg{
+  display:block; width:clamp(8.5rem,26vw,11.5rem); height:auto;
+  transform:rotate(-6deg); opacity:.93;
+}
+.case-seal figcaption{
+  margin:.6rem 0 0; text-align:center;
+  font-family:var(--record); font-size:.56rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--graphite); line-height:1.6;
+}
+.case-seal .disc{fill:rgba(138,43,43,.07); stroke:none}
+.case-seal .ring{fill:none; stroke:var(--oxblood); stroke-width:2.2}
+.case-seal .ring-thin{fill:none; stroke:var(--oxblood); stroke-width:1}
+.case-seal .ring-hair{fill:none; stroke:var(--oxblood); stroke-width:.6; opacity:.55}
+.case-seal .arc-t{
+  fill:var(--oxblood); font-family:var(--record); font-size:12.5px;
+  font-weight:600; letter-spacing:2.1px;
+}
+.case-seal .core-y{
+  fill:var(--oxblood); font-family:var(--record); font-size:30px;
+  font-weight:600; letter-spacing:2px; text-anchor:middle;
+}
+.case-seal .core-s{
+  fill:var(--oxblood); font-family:var(--record); font-size:11.5px;
+  font-weight:600; letter-spacing:1.7px; text-anchor:middle;
+}
+.case-seal .bar{stroke:var(--oxblood); stroke-width:1; opacity:.8}
+
+.alert-foot{
+  margin:1.4rem 0 0; padding-top:.9rem; border-top:1px solid rgba(138,43,43,.25);
   font-family:var(--record); font-size:.69rem; letter-spacing:.05em;
   line-height:1.8; color:var(--graphite);
+}
+
+/* ---------- recall bar ---------- */
+.alert-sticky{
+  position:fixed; top:0; left:0; right:0; z-index:60;
+  background:var(--oxblood); color:var(--stone);
+  transform:translateY(-102%); transition:transform .38s cubic-bezier(.2,.7,.2,1);
+  box-shadow:0 1px 0 rgba(0,0,0,.12);
+}
+.alert-sticky.on{transform:none}
+.alert-sticky a{
+  display:flex; justify-content:space-between; gap:.6rem 1.2rem; flex-wrap:wrap;
+  max-width:60rem; margin:0 auto; padding:.6rem var(--gut);
+  color:inherit; text-decoration:none; border:0;
+  font-family:var(--record); font-size:.63rem; letter-spacing:.15em; text-transform:uppercase;
+}
+.alert-sticky a:hover{opacity:.85}
+.alert-sticky .go{opacity:.75}
+
+@media (max-width:44rem){
+  .yr-body{grid-template-columns:1fr}
+  .case-seal{justify-self:center; margin-top:1.15rem}
 }
 @media (max-width:34rem){
   .yr-head{flex-wrap:wrap; gap:.5rem .7rem}
   .yr-rule{order:3; flex-basis:100%}
 }
-@media print{ .notice{background:none; border-left-width:3px} }
+@media (prefers-reduced-motion:reduce){
+  .alert-sticky{transition:none}
+}
+@media print{
+  .alert-sticky{display:none}
+  .alert-bar{background:none; color:var(--oxblood); border-bottom:2px solid var(--oxblood)}
+  .alert-body{background:none}
+  .case-seal svg{opacity:1}
+}
 </style>
 </head>
 <body>
+
+<div class="alert-sticky" id="alertRecall" aria-hidden="true">
+  <a href="#status"><span>Prosecutions pending &mdash; 2009 &middot; 2016</span><span class="go">Read the position &uarr;</span></a>
+</div>
+
+<section class="alert" id="status" aria-label="Standing notice — prosecutions pending">
+  <div class="alert-bar">
+    <div class="alert-inner">
+      <span class="alert-kicker">Standing notice &mdash; read first</span>
+      <h2 class="alert-title">Prosecutions instituted against me</h2>
+      <div class="alert-meta">
+        <span>Position as on 27.07.2026</span>
+        <span>Two matters &mdash; 2009 &amp; 2016</span>
+        <span>No finding of guilt in either</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-body">
+    <div class="alert-inner">
+      <p class="alert-lede">Two prosecutions stand instituted at the instance of the State. The position in each is set out below, year by year, and each is tied to a document that can be called for and checked.</p>
+
+      <div class="yr">
+        <div class="yr-head">
+          <span class="yr-n">2009</span>
+          <span class="yr-rule"></span>
+          <span class="yr-tag">Pleaded position</span>
+        </div>
+        <div class="yr-body">
+          <div class="yr-text">
+            <span class="cite">FIR No. 373/2009, Police Station Vasant Vihar, New Delhi &middot; Cr. Case No. 5A/02/2013 (50801/2016), Patiala House Courts, New Delhi</span>
+            <p>The Station House Officer arrayed as accused in this matter &mdash; the same officer arrayed as accused Station House Officer in the Chandigarh sacrilege matter &mdash; omitted to place on record the certificate mandated by Section 65B of the Indian Evidence Act, 1872. The omission goes to the root of the prosecution case: in consequence, the electronic evidence, and the submissions founded upon it, are inadmissible in law.</p>
+            <p>Upon retrieval of the digital evidence, sanction for prosecution has been sought against the police officials concerned. The matter remains at the stage of prosecution evidence.</p>
+            <span class="src">Source &middot; Indian Kanoon</span>
+          </div>
+          <figure class="case-seal">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Status mark: ELECTRONIC EVIDENCE INADMISSIBLE">
+            <defs>
+              <path id="arcT09" d="M 26,100 a 74,74 0 1,1 148,0"/>
+              <path id="arcB09" d="M 34,100 a 66,66 0 1,0 132,0"/>
+            </defs>
+            <circle class="disc" cx="100" cy="100" r="90"/>
+            <circle class="ring" cx="100" cy="100" r="90"/>
+            <circle class="ring-thin" cx="100" cy="100" r="83"/>
+            <circle class="ring-hair" cx="100" cy="100" r="58"/>
+            <text class="arc-t"><textPath href="#arcT09" startOffset="50%" text-anchor="middle">EVIDENCE ACT 1872 &#183; SECTION 65B</textPath></text>
+            <text class="arc-t"><textPath href="#arcB09" startOffset="50%" text-anchor="middle">CERTIFICATE NOT ON RECORD</textPath></text>
+            <line class="bar" x1="62" y1="78" x2="138" y2="78"/>
+            <text class="core-y" x="100" y="106">2009</text>
+            <line class="bar" x1="62" y1="118" x2="138" y2="118"/>
+            <text class="core-s" x="100" y="134">ELECTRONIC EVIDENCE</text>
+            <text class="core-s" x="100" y="148">INADMISSIBLE</text>
+          </svg>
+          <figcaption>Status mark of the record-holder<br>Not a seal of any Court</figcaption>
+        </figure>
+        </div>
+      </div>
+
+      <div class="yr">
+        <div class="yr-head">
+          <span class="yr-n">2016</span>
+          <span class="yr-rule"></span>
+          <span class="yr-tag">Pleaded position</span>
+        </div>
+        <div class="yr-body">
+          <div class="yr-text">
+            <span class="cite">FIR No. 225/2016 &middot; Case No. 97507/2016, Saket Courts, New Delhi</span>
+            <p>The charge under Section 153A of the Indian Penal Code invoked against me has not survived. The requisite compliance order is not borne out by the record of the Saket Court; the charge is therefore not sustained in law and has no legal subsistence.</p>
+            <p>No trial has proceeded. The State has itself returned a nil report as regards the forensic evidence. The application for discharge is on record and awaits adjudication.</p>
+          </div>
+          <figure class="case-seal">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Status mark: CHARGE NOT SUSTAINED">
+            <defs>
+              <path id="arcT16" d="M 26,100 a 74,74 0 1,1 148,0"/>
+              <path id="arcB16" d="M 34,100 a 66,66 0 1,0 132,0"/>
+            </defs>
+            <circle class="disc" cx="100" cy="100" r="90"/>
+            <circle class="ring" cx="100" cy="100" r="90"/>
+            <circle class="ring-thin" cx="100" cy="100" r="83"/>
+            <circle class="ring-hair" cx="100" cy="100" r="58"/>
+            <text class="arc-t"><textPath href="#arcT16" startOffset="50%" text-anchor="middle">PENAL CODE 1860 &#183; SECTION 153A</textPath></text>
+            <text class="arc-t"><textPath href="#arcB16" startOffset="50%" text-anchor="middle">NO LEGAL SUBSISTENCE</textPath></text>
+            <line class="bar" x1="62" y1="78" x2="138" y2="78"/>
+            <text class="core-y" x="100" y="106">2016</text>
+            <line class="bar" x1="62" y1="118" x2="138" y2="118"/>
+            <text class="core-s" x="100" y="134">CHARGE NOT</text>
+            <text class="core-s" x="100" y="148">SUSTAINED</text>
+          </svg>
+          <figcaption>Status mark of the record-holder<br>Not a seal of any Court</figcaption>
+        </figure>
+        </div>
+      </div>
+
+      <p class="alert-foot">The seals above are status marks of my own record and carry no authority of any Court. Statements marked as a pleaded position are my case as pleaded, and are not to be read as a finding.</p>
+    </div>
+  </div>
+</section>
 <div class="wrap">
 
-<aside class="notice" id="status" role="note" aria-label="Standing notice — prosecutions pending">
-  <div class="notice-strip">
-    <span>Standing notice</span>
-    <span class="as-on">Position as on 27.07.2026</span>
-  </div>
 
-  <h2>Prosecutions instituted against me &mdash; year-wise position</h2>
-
-  <p class="lede">Two prosecutions stand instituted at the instance of the State. The position in each is set out below, year by year. No finding of guilt has been recorded in either matter.</p>
-
-  <div class="yr">
-    <div class="yr-head">
-      <span class="yr-n">2009</span>
-      <span class="yr-rule"></span>
-      <span class="yr-tag">Pleaded position</span>
-    </div>
-    <span class="cite">FIR No. 373/2009, Police Station Vasant Vihar, New Delhi &middot; Cr. Case No. 5A/02/2013 (50801/2016), Patiala House Courts, New Delhi</span>
-    <p>The Station House Officer arrayed as accused in this matter &mdash; the same officer arrayed as accused Station House Officer in the Chandigarh sacrilege matter &mdash; omitted to place on record the certificate mandated by Section 65B of the Indian Evidence Act, 1872. The omission goes to the root of the prosecution case: in consequence, the electronic evidence, and the submissions founded upon it, are inadmissible in law.</p>
-    <p>Upon retrieval of the digital evidence, sanction for prosecution has been sought against the police officials concerned. The matter remains at the stage of prosecution evidence.</p>
-    <span class="src">Source &middot; Indian Kanoon</span>
-  </div>
-
-  <div class="yr">
-    <div class="yr-head">
-      <span class="yr-n">2016</span>
-      <span class="yr-rule"></span>
-      <span class="yr-tag">Pleaded position</span>
-    </div>
-    <span class="cite">FIR No. 225/2016 &middot; Case No. 97507/2016, Saket Courts, New Delhi</span>
-    <p>The charge under Section 153A of the Indian Penal Code invoked against me has not survived. The requisite compliance order is not borne out by the record of the Saket Court; the charge is therefore not sustained in law and has no legal subsistence.</p>
-    <p>No trial has proceeded. The State has itself returned a nil report as regards the forensic evidence. The application for discharge is on record and awaits adjudication.</p>
-  </div>
-
-  <p class="foot">Each statement above is tied to a document on the record of the court concerned and can be called for and checked. Statements marked as a pleaded position are my case as pleaded, and are not to be read as a finding of the Court.</p>
-</aside>
 
 <header class="masthead">
   <div class="strip">
@@ -850,6 +989,23 @@ document.documentElement.classList.add('js');
     entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
   }, {rootMargin:'0px 0px -8% 0px', threshold:0.05});
   all.forEach(function(e){io.observe(e)});
+})();
+</script>
+
+<script>
+/* alert-sticky */
+(function(){
+  var band = document.getElementById('status');
+  var bar  = document.getElementById('alertRecall');
+  if(!band || !bar) return;
+  function sync(){
+    var past = band.getBoundingClientRect().bottom < 0;
+    bar.classList.toggle('on', past);
+    bar.setAttribute('aria-hidden', past ? 'false' : 'true');
+  }
+  sync();
+  window.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', sync);
 })();
 </script>
 </body>
