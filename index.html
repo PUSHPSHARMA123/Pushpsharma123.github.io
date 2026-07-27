@@ -363,6 +363,45 @@ footer li{margin:.4rem 0}
   .alert-body{background:none}
   .case-seal svg{opacity:1}
 }
+
+/* ---------- contact ---------- */
+.contact{border:1px solid var(--rule); padding:clamp(1.1rem,3vw,1.6rem); margin-top:clamp(2.5rem,7vw,4rem)}
+.contact h4{
+  margin:.4rem 0 .9rem; font-family:var(--record); font-weight:500; font-size:.78rem;
+  letter-spacing:.18em; text-transform:uppercase;
+}
+.contact > p{margin:0 0 1rem; font-size:.92rem; color:var(--graphite)}
+.contact form{display:grid; gap:.85rem; max-width:34rem}
+.contact label{
+  display:block; font-family:var(--record); font-size:.64rem;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--graphite); margin:0 0 .35rem;
+}
+.contact input, .contact textarea{
+  width:100%; background:var(--vellum); color:var(--ink);
+  border:1px solid var(--rule); border-radius:0;
+  padding:.6rem .7rem; font-family:var(--prose); font-size:1rem; line-height:1.5;
+  -webkit-appearance:none; appearance:none;
+}
+.contact textarea{min-height:8.5rem; resize:vertical}
+.contact input:focus, .contact textarea:focus{
+  outline:none; border-color:var(--oxblood); box-shadow:0 0 0 1px var(--oxblood);
+}
+.contact .send{
+  justify-self:start; background:var(--oxblood); color:var(--stone);
+  border:1px solid var(--oxblood); padding:.6rem 1.4rem; cursor:pointer;
+  font-family:var(--record); font-size:.68rem; letter-spacing:.18em; text-transform:uppercase;
+}
+.contact .send:hover{background:transparent; color:var(--oxblood)}
+.contact .send:focus-visible{outline:2px solid var(--oxblood); outline-offset:3px}
+.contact .formnote{
+  margin:1rem 0 0; font-family:var(--record); font-size:.66rem; letter-spacing:.05em;
+  line-height:1.85; color:var(--graphite);
+}
+.contact .handles{
+  margin:1.1rem 0 0; padding-top:.9rem; border-top:1px solid var(--rule);
+  font-family:var(--record); font-size:.7rem; letter-spacing:.06em; color:var(--graphite);
+}
+@media print{ .contact form{display:none} }
 </style>
 </head>
 <body>
@@ -934,6 +973,40 @@ footer li{margin:.4rem 0}
 </div>
 
 
+
+<section class="contact rv" id="contact">
+  <span class="rec">Correspondence</span>
+  <h4>Contact</h4>
+  <p>Write here on anything arising from this record &mdash; a correction, a document, a press enquiry, or a request to verify a case particular. Messages are delivered to me by email.</p>
+
+  <form action="https://formsubmit.co/pushpindian@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Website enquiry &mdash; Record and Proceedings">
+    <input type="hidden" name="_template" value="table">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <div>
+      <label for="cname">Your name</label>
+      <input type="text" id="cname" name="name" required autocomplete="name">
+    </div>
+    <div>
+      <label for="cemail">Your email</label>
+      <input type="email" id="cemail" name="email" required autocomplete="email">
+    </div>
+    <div>
+      <label for="cmsg">Message</label>
+      <textarea id="cmsg" name="message" required></textarea>
+    </div>
+
+    <button type="submit" class="send">Send message</button>
+  </form>
+
+  <p class="formnote">Nothing sent through this form is legal advice sought or given, and no professional engagement arises from it. Where a correction to this record is proposed, please identify the passage and the document relied upon.</p>
+
+  <div class="handles">
+    Also at <a href="https://x.com/PUSHP_SRE" rel="me noopener">@PUSHP_SRE</a> &middot; <a href="https://www.instagram.com/blm.chd/" rel="me noopener">@blm.chd</a>. No postal address or telephone number is published.
+  </div>
+</section>
+
 <section class="disclaimer rv" id="disclaimer">
   <span class="rec">Disclaimer</span>
   <h4>Terms on which this page is published</h4>
@@ -963,7 +1036,7 @@ footer li{margin:.4rem 0}
   </ol>
   <div class="colophon">
     <span class="rec">Pushp Sharma &middot; Chandigarh</span>
-    <span class="rec"><a href="https://x.com/PUSHP_SRE" rel="me noopener">@PUSHP_SRE</a> &middot; <a href="https://www.instagram.com/blm.chd/" rel="me noopener">@blm.chd</a></span>
+    <span class="rec"><a href="#contact">Write</a> &middot; <a href="https://x.com/PUSHP_SRE" rel="me noopener">@PUSHP_SRE</a> &middot; <a href="https://www.instagram.com/blm.chd/" rel="me noopener">@blm.chd</a></span>
   </div>
 </footer>
 
