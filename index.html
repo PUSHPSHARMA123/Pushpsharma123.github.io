@@ -19,11 +19,19 @@
      (rename your files to match exactly, or edit the two hrefs below —
       search for "docs/" in this file)
 
-  TO SWITCH THE CONTACT FORM ON
-  Go to formspree.io, create a free form, copy the endpoint it gives you
-  (it looks like https://formspree.io/f/xxxxxxx) and paste it in place of
-  FORMSPREE_ENDPOINT_HERE below. Search for "FORMSPREE" in this file.
-  Until then the form shows a notice instead of sending.
+  TO SWITCH THE CONTACT FORM ON  (the only thing left to do)
+  1. Go to formspree.io and sign up using:  pushpindian@gmail.com
+  2. Click the verification link Formspree sends to that inbox.
+  3. Create a form. Copy the address it gives you — it looks like
+        https://formspree.io/f/abcdwxyz
+  4. In this file, find the word FORMSPREE_ENDPOINT_HERE (it appears once,
+     in the contact section near the bottom) and replace it with the
+     address from step 3. Nothing else changes.
+  5. Commit. Send yourself a test message and click the one-time
+     confirmation email. Messages then arrive in pushpindian@gmail.com.
+
+  Your email address is NOT written anywhere in this file, and must not be.
+  It lives in the Formspree account. That is what keeps it away from bots.
 
   TO EDIT CONTENT
   Everything is plain HTML below. Case entries are <article class="matter">.
@@ -420,7 +428,8 @@
       <div class="m-body">
         <p><span class="num">FIR No. 225/2016</span>, PS Kotla Mubarakpur → <span class="num">CC No. 97507/2016</span>, before JMFC-11, South-East / Saket, Delhi. The complaint alleges that the RTI reply underlying the Milli Gazette story of 11.03.2016 was forged.</p>
         <p>Current position: <strong>discharge application pending; listed for arguments on charge</strong> (order dated 07.01.2026). <strong>The forensic report is nil.</strong> No forensic evidence is in issue.</p>
-        <p>The proclaimed-offender declaration and the non-bailable warrants were separately challenged before the Delhi High Court in <span class="num">CRL.M.C. 5691/2022</span>, and <strong>relief was granted</strong> — which is why the trial is now proceeding.</p>
+        <p>He was based in the <strong>United Kingdom between 2018 and 2023</strong>, during his membership of the Foreign Press Association, London. It was that absence from India — and nothing else — that produced the proclaimed-offender declaration and the non-bailable warrants in this matter.</p>
+        <p>Both were separately challenged before the Delhi High Court in <span class="num">CRL.M.C. 5691/2022</span>, and <strong>relief was granted</strong> — which is why the trial is now proceeding.</p>
       </div>
     </details>
   </div>
@@ -498,8 +507,10 @@
     <div class="head"><span class="para">¶ 5</span><h2>Get in touch</h2></div>
     <p class="note">For press enquiries, research collaboration and speaking requests.</p>
 
-    <!-- FORMSPREE: replace the action URL below with your Formspree endpoint -->
-    <form action="FORMSPREE_ENDPOINT_HERE" method="POST" id="contactForm">
+    <form action="https://formsubmit.co/pushpindian@gmail.com" method="POST" id="contactForm">
+      <input type="hidden" name="_subject" value="Website enquiry — pushpsharma.in">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div>
         <label for="name">Your name</label>
         <input type="text" id="name" name="name" required>
@@ -514,7 +525,7 @@
       </div>
       <button type="submit" class="send">Send message</button>
     </form>
-    <p class="formnote" id="formnote">The form is not connected yet. Create a free form at formspree.io and paste the endpoint into this page — the instructions are in the comment at the top of the file.</p>
+    <p class="formnote" id="formnote">Messages are delivered by email. Your details are not stored on this site.</p>
   </div>
 </section>
 
@@ -525,22 +536,5 @@
   </div>
 </footer>
 
-<script>
-/* ---- Contact form guard: blocks submission until the endpoint is set ---- */
-(function(){
-  var form = document.getElementById('contactForm');
-  var note = document.getElementById('formnote');
-  if(!form) return;
-  if(form.getAttribute('action').indexOf('FORMSPREE_ENDPOINT_HERE') === -1){
-    note.style.display = 'none';
-    return;
-  }
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    note.textContent = 'This form is not connected yet. Paste your Formspree endpoint into the page to switch it on — see the instructions at the top of the file.';
-    note.style.color = 'var(--stamp)';
-  });
-})();
-</script>
 </body>
 </html>
