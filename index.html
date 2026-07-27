@@ -205,21 +205,6 @@
   .doclink:hover{border-color:var(--stamp);background:rgba(192,72,58,.09)}
   .doclink::before{content:"PDF";color:var(--stamp);font-weight:500}
 
-  /* ---------- filter ---------- */
-  .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.6rem}
-  .filters button{
-    font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;
-    text-transform:uppercase;color:var(--paper-dim);background:transparent;
-    border:1px solid var(--rule-strong);padding:.5rem .8rem;border-radius:2px;
-    cursor:pointer;transition:color .18s,border-color .18s;
-  }
-  .filters button[aria-pressed="true"]{color:var(--paper);border-color:var(--stamp)}
-  .filters button:hover{color:var(--paper)}
-  .count{
-    font-family:var(--mono);font-size:.68rem;color:var(--paper-dim);
-    margin:0 0 1.6rem;letter-spacing:.06em;
-  }
-
   /* ---------- tally (signature) ---------- */
   .tally{
     background:var(--paper);color:var(--ink);border-radius:3px;
