@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Record and Proceedings — Pushp Sharma</title>
+<meta name="description" content="Documented record of investigative work and of proceedings before the Supreme Court of India, the Delhi High Court and the Punjab &amp; Haryana High Court.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --stone:#E6E7E1;
+  --vellum:#F1F2ED;
+  --ink:#15171C;
+  --graphite:#565A61;
+  --rule:#C2C5BC;
+  --oxblood:#8A2B2B;
+  --record: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --prose: "Spectral", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --gut: clamp(1.25rem, 4vw, 3rem);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--stone); color:var(--ink);
+  font-family:var(--prose); font-weight:300;
+  font-size:clamp(1rem,0.96rem + 0.2vw,1.075rem); line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:60rem; margin:0 auto; padding:0 var(--gut) 6rem}
+
+/* ---------- utility type ---------- */
+.rec{font-family:var(--record); font-size:.7rem; letter-spacing:.13em; text-transform:uppercase; color:var(--graphite)}
+.rule{height:1px; background:var(--rule); transform-origin:left; }
+.js .rule{transform:scaleX(0); transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rule.in{transform:scaleX(1)}
+
+/* ---------- masthead ---------- */
+header.masthead{padding-top:clamp(2rem,6vw,4.5rem)}
+.strip{display:flex; flex-wrap:wrap; gap:.35rem 1.5rem; justify-content:space-between; padding-bottom:.6rem}
+.title{
+  font-family:var(--record); font-weight:500;
+  font-size:clamp(1.05rem,4.6vw,2.15rem);
+  letter-spacing:clamp(.12em,.9vw,.34em);
+  text-transform:uppercase; line-height:1.35;
+  margin:clamp(1.6rem,5vw,2.8rem) 0 0; text-align:center;
+}
+.title span{display:block; font-size:.42em; letter-spacing:.3em; color:var(--oxblood); margin-top:1.1rem}
+.cause{
+  margin:clamp(1.6rem,5vw,2.6rem) 0 0; text-align:center;
+  font-family:var(--record); font-size:clamp(.78rem,2.4vw,.95rem);
+  letter-spacing:.09em; line-height:2; text-transform:uppercase;
+}
+.cause b{font-weight:600}
+.standfirst{display:flex; gap:clamp(1rem,3vw,1.75rem); align-items:flex-start; margin:clamp(2rem,6vw,3rem) 0 0}
+.avatar{
+  flex:0 0 auto; width:clamp(74px,17vw,104px); aspect-ratio:1; border-radius:50%;
+  object-fit:cover; filter:grayscale(1) contrast(1.06);
+  border:1px solid var(--rule); background:var(--vellum);
+}
+.standfirst p{margin:0; font-size:clamp(1.02rem,1vw + .85rem,1.25rem); line-height:1.55}
+.standfirst p em{font-style:italic; color:var(--graphite)}
+
+/* ---------- parts & heads ---------- */
+.part{margin-top:clamp(3.5rem,9vw,5.5rem)}
+.part-label{display:flex; align-items:baseline; gap:1rem; margin-bottom:.75rem}
+.part-label .rec{white-space:nowrap}
+.part-label .rule{flex:1}
+.part-name{
+  font-family:var(--record); font-weight:500; text-transform:uppercase;
+  letter-spacing:.18em; font-size:clamp(.82rem,2.2vw,.95rem); margin:0 0 1.5rem;
+}
+.head{display:grid; grid-template-columns:2.75rem 1fr; gap:0 1.25rem; padding:1.5rem 0; border-top:1px solid var(--rule)}
+.head:first-of-type{border-top:none}
+.head > .n{font-family:var(--record); font-size:.78rem; color:var(--oxblood); padding-top:.28rem; letter-spacing:.04em}
+.head h3{margin:0 0 .5rem; font-family:var(--prose); font-weight:600; font-size:1.06rem; letter-spacing:.005em}
+.head p{margin:0 0 .7rem}
+.head p:last-child{margin-bottom:0}
+.head .note{font-family:var(--record); font-size:.72rem; line-height:1.7; letter-spacing:.03em; color:var(--graphite); text-transform:none}
+.head ul{margin:.2rem 0 .7rem; padding-left:1.1rem}
+.head li{margin:.3rem 0}
+
+/* ---------- record cards ---------- */
+.file{background:var(--vellum); border:1px solid var(--rule); padding:1rem 1.1rem; margin:.85rem 0}
+.file + .file{margin-top:.6rem}
+.file dl{display:grid; grid-template-columns:minmax(5.5rem,8rem) 1fr; gap:.3rem .9rem; margin:.65rem 0 0}
+.file dt{font-family:var(--record); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--graphite); padding-top:.28rem}
+.file dd{margin:0; font-size:.96rem}
+.file .cn{font-family:var(--record); font-weight:600; font-size:.85rem; letter-spacing:.02em}
+.flag{
+  display:inline-block; font-family:var(--record); font-size:.62rem; letter-spacing:.14em;
+  text-transform:uppercase; border:1px solid currentColor; padding:.16rem .45rem; color:var(--oxblood);
+}
+.flag.q{color:var(--graphite)}
+
+/* ---------- sealed cover: signature element ---------- */
+.sealed{position:relative; margin:1rem 0 0; border:1px solid var(--oxblood); background:var(--vellum)}
+.sealed-bar{
+  background:var(--oxblood); color:var(--stone); font-family:var(--record);
+  font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+  padding:.5rem .9rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+}
+.sealed-body{padding:1.5rem 1.1rem 1.1rem; position:relative; overflow:hidden}
+.redact{margin:0 0 .55rem; height:.72rem; background:var(--ink); opacity:.82}
+.redact:nth-child(1){width:96%} .redact:nth-child(2){width:88%}
+.redact:nth-child(3){width:93%} .redact:nth-child(4){width:61%}
+.redact:nth-child(5){width:79%}
+.seal{
+  position:absolute; right:.9rem; bottom:.9rem; width:78px; height:78px; border-radius:50%;
+  border:1.5px solid var(--oxblood); color:var(--oxblood); display:grid; place-content:center;
+  text-align:center; font-family:var(--record); font-size:.5rem; letter-spacing:.1em;
+  line-height:1.5; transform:rotate(-8deg); opacity:.85; background:rgba(138,43,43,.05);
+}
+.sealed figcaption{padding:.9rem 1.1rem 1.1rem; border-top:1px dashed var(--rule)}
+
+/* ---------- slots for images ---------- */
+.slot{
+  border:1px dashed var(--rule); background:var(--vellum); aspect-ratio:4/3;
+  display:grid; place-content:center; text-align:center; padding:1rem; margin:.85rem 0;
+}
+.slot span{font-family:var(--record); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--graphite)}
+.slots{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:.75rem}
+.slots .slot{margin:0}
+
+/* ---------- links ---------- */
+a{color:var(--oxblood); text-decoration:none; border-bottom:1px solid rgba(138,43,43,.35); padding-bottom:1px}
+a:hover{border-bottom-color:var(--oxblood)}
+a:focus-visible{outline:2px solid var(--oxblood); outline-offset:3px}
+.handle{font-family:var(--record); font-size:.9rem; letter-spacing:.06em}
+
+/* ---------- footer rubrics ---------- */
+footer{margin-top:clamp(3.5rem,9vw,5.5rem); border-top:1px solid var(--rule); padding-top:1.5rem}
+footer ol{margin:1rem 0 0; padding-left:1.2rem; font-family:var(--record); font-size:.72rem; line-height:1.85; color:var(--graphite); letter-spacing:.02em}
+footer li{margin:.4rem 0}
+.colophon{display:flex; flex-wrap:wrap; gap:.6rem 2rem; justify-content:space-between; margin-top:2rem}
+
+/* ---------- reveal ---------- */
+.js .rv{opacity:0; transform:translateY(12px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1; transform:none}
+
+@media (max-width:34rem){
+  .head{grid-template-columns:1fr; gap:0}
+  .head > .n{padding:0 0 .35rem}
+  .file dl{grid-template-columns:1fr}
+  .file dt{padding-top:.4rem}
+  .seal{position:static; margin:1rem 0 0; transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .rv, .js .rule{opacity:1 !important; transform:none !important; transition:none !important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="strip">
+    <span class="rec">Record and Proceedings</span>
+    <span class="rec">Prepared 27.07.2026</span>
+  </div>
+  <div class="rule"></div>
+
+  <h1 class="title">Record and Proceedings<span>Documents, orders, and what is withheld</span></h1>
+
+  <p class="cause rv">
+    <b>Pushp Sharma</b> @ Pushp Kumar Sharma<br>
+    Investigative Journalist · Petitioner-in-Person
+  </p>
+
+  <div class="standfirst rv">
+    <img class="avatar" src="data:image/jpeg;base64,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" alt="Pushp Sharma">
+    <p>Every statement on this page is tied to a document that can be called for and checked. Where a claim rests on a pleading rather than on a finding, it is marked as a pleading. <em>One part of the record is sealed by order of the Court and is not published here.</em></p>
+  </div>
+</header>
+
+<!-- ============ PART I ============ -->
+<section class="part rv">
+  <div class="part-label"><span class="rec">Part I</span><div class="rule"></div></div>
+  <h2 class="part-name">Professional record</h2>
+
+  <div class="head">
+    <div class="n">1</div>
+    <div>
+      <h3>Journalism</h3>
+      <p>Two decades of investigative reporting. Star News, India News, Tehelka, Headlines Today and Cobrapost. Work syndicated on Al Jazeera English and BBC World.</p>
+      <p>Full member, Foreign Press Association, London (2018–2023).</p>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="n">2</div>
+    <div>
+      <h3>Recognition</h3>
+      <p>International Press Institute Award (Vienna), 2011, for <em>Rent a Riot</em>. Finalist, eighth Global Shining Light Award. Research presentations at Hamburg and at the African Investigative Journalism Conference, 2019.</p>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="n">3</div>
+    <div>
+      <h3>Principal investigations</h3>
+      <ul>
+        <li><strong>Rent a Riot</strong> (2010) — Tehelka</li>
+        <li><strong>Sick Man Walking</strong> (2010) — Tehelka</li>
+        <li><strong>If the Pose Holds</strong> (2012) — Outlook and IBN 7; followed by CBI Case No. RC 2(S)/2013</li>
+        <li><strong>Operation 136</strong> (2018) — Cobrapost</li>
+        <li><strong>Paytm data-sharing</strong> (2018)</li>
+      </ul>
+      <p class="note">Each entry links to the published story only. No further allegation is made on this page.</p>
+      <div class="slots">
+        <div class="slot"><span>Byline photograph<br>replace</span></div>
+        <div class="slot"><span>Story tearsheet<br>replace</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="n">4</div>
+    <div>
+      <h3>Litigation arising from publication</h3>
+      <p>The restraint on publication of certain Operation 136 material was set aside by a Division Bench of the Delhi High Court. The matter is used as a case study in Columbia University’s Global Freedom of Expression programme.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART II ============ -->
+<section class="part rv">
+  <div class="part-label"><span class="rec">Part II</span><div class="rule"></div></div>
+  <h2 class="part-name">The 2019 assignment</h2>
+
+  <div class="head">
+    <div class="n">5</div>
+    <div>
+      <h3>Statement of position</h3>
+      <p>That he left India in 2019 in the course of an investigative assignment, and that the intention was never to abscond from the process of law but to serve the public interest.</p>
+      <p class="note">Averment. Source: paragraph 12 of the application before the learned Metropolitan Magistrate, Saket. Not a finding of any court.</p>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="n">6</div>
+    <div>
+      <h3>The assignment itself</h3>
+      <figure class="sealed">
+        <div class="sealed-bar"><span>Sealed cover</span><span>Not published</span></div>
+        <div class="sealed-body">
+          <p class="redact"></p><p class="redact"></p><p class="redact"></p>
+          <p class="redact"></p><p class="redact"></p>
+          <div class="seal">SUB<br>JUDICE</div>
+        </div>
+        <figcaption class="note">
+          The particulars of the assignment were placed before the Court in a sealed cover, on the ground that the contents pertain to matters sub judice or under investigation by different agencies. They are withheld here for the same reason, and will be published only when that condition ceases.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART III ============ -->
+<section class="part rv">
+  <div class="part-label"><span class="rec">Part III</span><div class="rule"></div></div>
+  <h2 class="part-name">Proceedings</h2>
+
+  <div class="head">
+    <div class="n">7</div>
+    <div>
+      <h3>High Court of Delhi</h3>
+      <div class="file">
+        <span class="cn">CRL.M.C. 5691/2022</span>
+        <span class="flag q">Disposed of</span>
+        <dl>
+          <dt>Cause title</dt><dd>Pushp Sharma v. State of NCT of Delhi</dd>
+          <dt>With</dt><dd>CRL.M.A. 22424/2022 and 22426/2022</dd>
+          <dt>Arising from</dt><dd>CR Case No. 97507/2016; FIR No. 225/2016, PS Kotla Mubarakpur</dd>
+        </dl>
+      </div>
+      <p><strong>Order dated 09.11.2022</strong> (Mendiratta, J.) — Notice issued. The Court recorded observations on the application of Section 82(4) Cr.P.C., which were not in the petitioner’s favour, and left the interim application to be considered after the State’s reply.</p>
+      <p><strong>Order dated 19.12.2022</strong> (Jasmeet Singh, J.) — The Court held that once cancellation of the Section 82 process is sought, the accused has submitted to the jurisdiction of the Court. The petitioner was directed to appear before the Trial Court and seek cancellation, and it was directed that until that application is decided he shall not be arrested in FIR No. 225/2016 or pursuant to the orders dated 10.10.2019 and 29.10.2022. The petition was disposed of in those terms.</p>
+      <p class="note">The petition was disposed of, not allowed. No order of any court has quashed the proceedings. Both orders are summarised; the certified copies govern.</p>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="n">8</div>
+    <div>
+      <h3>Supreme Court of India — matters registered</h3>
+
+      <div class="file">
+        <span class="cn">W.P. (Crl.) No. 25/2026</span>
+        <span class="flag q">Disposed of</span>
+        <dl>
+          <dt>Cause title</dt><dd>Pushp Sharma @ Pushp Kumar Sharma v. State of Punjab &amp; Ors.</dd>
+          <dt>Diary</dt><dd>72596/2025</dd>
+          <dt>Coram</dt><dd>Viswanathan and Chandurkar, JJ.</dd>
+          <dt>Order</dt><dd>20.02.2026</dd>
+        </dl>
+        <p style="margin:.8rem 0 0">Permission to appear and argue in person was allowed and the petitioner was heard in person. Liberty was granted to prosecute prayer ‘B’ before the High Court and to pursue appropriate remedies in respect of prayer ‘A’. The petition was disposed of in those terms.</p>
+      </div>
+
+      <div class="file">
+        <span class="cn">T.P. (Crl.) No. 100/2026</span>
+        <span class="flag">Pending</span>
+        <dl>
+          <dt>Cause title</dt><dd>Pushp Sharma @ Pushp Kumar Sharma v. State of Uttarakhand</dd>
+          <dt>Diary</dt><dd>73285/2025, filed 17.12.2025</dd>
+          <dt>Registered</dt><dd>02.02.2026</dd>
+          <dt>CNR</dt><dd>SCIN010732852025</dd>
+          <dt>Last listed</dt><dd>12.05.2026 — Sundresh and Varale, JJ.</dd>
+          <dt>Stage</dt><dd>Motion hearing, transfer petitions</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="n">9</div>
+    <div>
+      <h3>Supreme Court of India — filing under process</h3>
+      <div class="file">
+        <span class="cn">Diary No. 23383/2026</span>
+        <span class="flag">Under process</span>
+        <dl>
+          <dt>Cause title</dt><dd>Pushp Kumar Sharma v. State of Punjab</dd>
+          <dt>Nature</dt><dd>Special leave petition (civil)</dd>
+          <dt>Arising from</dt><dd>CWP No. 4352/2026, High Court of Punjab &amp; Haryana</dd>
+        </dl>
+        <p class="note" style="margin:.8rem 0 0">Filed and under process before the Registry. No case number has issued and the matter is not described here as pending.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="n">10</div>
+    <div>
+      <h3>Present status</h3>
+      <p>Criminal proceedings remain pending and are contested. Nothing on this page is a comment on their merits.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART IV ============ -->
+<section class="part rv">
+  <div class="part-label"><span class="rec">Part IV</span><div class="rule"></div></div>
+  <h2 class="part-name">Credentials, documents and contact</h2>
+
+  <div class="head">
+    <div class="n">11</div>
+    <div>
+      <h3>Legal education and training</h3>
+      <p>LL.B., Rayat Bahra University (2023–2026). Legal Intern, Chamber of Vivek Singh, Advocate, Saket Courts, New Delhi — legal research, drafting of pleadings and applications, and observation of proceedings.</p>
+      <p class="note">Not enrolled with any State Bar Council. No suffix, enrolment number or firm description is claimed.</p>
+      <div class="slot" style="aspect-ratio:3/4; max-width:16rem"><span>Internship certificate<br>date of birth redacted</span></div>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="n">12</div>
+    <div>
+      <h3>Appearance</h3>
+      <p>Appears as Petitioner-in-Person before the Supreme Court of India and the High Court of Punjab &amp; Haryana. Leave to appear and argue in person was granted by the Supreme Court in W.P. (Crl.) No. 25/2026.</p>
+      <p class="note">Leave to appear in person is granted to a litigant in a particular matter. It is not a right of audience and no right to practise is claimed.</p>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="n">13</div>
+    <div>
+      <h3>Documents</h3>
+      <ul>
+        <li>Certified paper book, CRL.M.C. 5691/2022 — e-filing reference 5016978-2025</li>
+        <li>Record of Proceedings dated 20.02.2026, W.P. (Crl.) No. 25/2026</li>
+        <li>Case status, T.P. (Crl.) No. 100/2026</li>
+        <li>Internship certificate, dated and sealed</li>
+      </ul>
+      <p class="note">Documents are published as certified or issued copies. Personal identifiers are redacted. Third-party names, signatures and seals appear with consent.</p>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="n">14</div>
+    <div>
+      <h3>Public communications</h3>
+      <p class="handle"><a href="https://x.com/PUSHP_SRE" rel="me noopener">@PUSHP_SRE</a> on X</p>
+      <p class="note">Posts on social media are personal communications. They form no part of any pleading or judicial record and are not to be read as such.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="rv">
+  <span class="rec">Standing rubrics</span>
+  <ol>
+    <li>Averments made in pleadings are identified as averments. Only Parts III and the orders summarised there are stated as judicial record.</li>
+    <li>Case particulars as on 27.07.2026. Current status may be verified at sci.gov.in and on the respective court websites.</li>
+    <li>Orders are summarised in short form. The certified copies govern in the event of any difference.</li>
+    <li>Third parties are named only as recorded in the published stories or in the orders themselves.</li>
+    <li>Material placed before any court in sealed cover is not published here.</li>
+  </ol>
+  <div class="colophon">
+    <span class="rec">Pushp Sharma · Chandigarh</span>
+    <span class="rec"><a href="https://x.com/PUSHP_SRE" rel="me noopener">@PUSHP_SRE</a></span>
+  </div>
+</footer>
+
+</div>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var els = document.querySelectorAll('.rv, .rule');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(e){e.classList.add('in')}); return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  },{rootMargin:'0px 0px -8% 0px', threshold:.08});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
