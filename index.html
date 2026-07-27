@@ -91,6 +91,17 @@
   }
   @media (prefers-reduced-motion:reduce){*{transition:none !important;scroll-behavior:auto;}}
 
+
+  .idcard{display:flex;gap:20px;align-items:center;margin:26px 0 2px;}
+  .idcard img{width:96px;height:96px;border-radius:50%;object-fit:cover;
+    border:2px solid var(--oxblood);flex:0 0 auto;background:#e8e6e0;}
+  .idcard .idcard-txt{font-size:15px;color:var(--ink-soft);}
+  figure.photo{margin:22px 0 6px;}
+  figure.photo img{width:100%;max-width:360px;height:auto;border-radius:4px;
+    border:1px solid var(--line);display:block;background:#e8e6e0;}
+  figure.photo figcaption{font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+    letter-spacing:.04em;color:var(--muted);margin-top:8px;}
+  .js-img-hide{display:none !important;}
   footer{border-top:3px solid var(--oxblood);padding:32px 0 70px;margin-top:36px;}
   footer p{font-size:14.5px;color:var(--muted);margin:0 0 8px;max-width:64ch;}
   footer .place{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;
@@ -104,6 +115,10 @@
     <p class="eyebrow">Litigation &amp; Constitutional Record</p>
     <h1 class="name">Pushp Kumar Sharma</h1>
     <p class="roles"><span>Investigative Journalist</span><i>·</i><span>Constitutional Researcher</span><i>·</i><span>Petitioner-in-Person</span></p>
+    <div class="idcard">
+      <img id="portrait" src="portrait.jpg" alt="Portrait of Pushp Kumar Sharma" onerror="this.parentNode.classList.add('js-img-hide')" />
+      <span class="idcard-txt">Investigative journalist and constitutional researcher; appears as Petitioner-in-Person before the High Court of Delhi, the High Court of Punjab &amp; Haryana, and the Supreme Court of India.</span>
+    </div>
   </header>
 </div>
 <hr class="ribbon" />
@@ -118,7 +133,13 @@
   <p class="bio">An investigative journalist for over two decades, recognised with the International Press Institute (Vienna) Award for Excellence in Journalism (2011) for <em>Rent a Riot</em>, published in <em>Tehelka</em>, which exposed a plan to organise communal violence for money. He was a member of the Foreign Press Association, London (2018–2023).</p>
   <p id="operation-136" class="bio">His best-known investigation is Cobrapost's <strong>Operation 136</strong> (2018) — a landmark undercover exposé of paid news, described as India's equivalent of the Cambridge Analytica revelations. Working under an alias, he approached the owners and senior management of more than three dozen media houses and documented their willingness to run a paid political and communal campaign ahead of the 2019 general election in exchange for money. Cobrapost released the series in two parts, on 26 March and 25 May 2018; several of the named houses denied the allegations.</p>
   <p class="coverage">Coverage: <a href="https://thewire.in/media/large-media-houses-seen-striking-deals-for-paid-news-to-promote-hindutva-agenda">The Wire &#8599;</a><a href="https://www.aljazeera.com/programmes/listeningpost/2018/06/cobrapost-sting-indian-media-outlets-paid-news-180602061127433.html">Al Jazeera &#8599;</a><a href="https://en.wikipedia.org/wiki/Pushp_Sharma">Wikipedia &#8599;</a></p>
+  <p class="bio">Among his other investigations — as recited in his own submissions on the record of the High Court of Delhi (CRL.M.C. 5691/2022) — are <em>Sick Man Walking</em> (Tehelka, 2010), on the Satyam scam, in which he secured hidden-camera footage later relied upon by the CBI in the trial of B. Ramalinga Raju; <em>If the Pose Holds</em> (Outlook–IBN7, October 2012), on the disappearance of Swami Shankardev, the guru of Baba Ramdev, after which the Government ordered a CBI inquiry into the affair (CBI Case No. RC 2(S)/2013); and a 2018 investigation into PMO involvement in Paytm's data-sharing practices around demonetisation. His stories and investigative footage have also been aired internationally, including on Al Jazeera English.</p>
+  <p class="coverage">Court record: <a href="https://outlookindia.com/magazine/story/if-the-pose-holds/282475">Outlook — "If the Pose Holds" &#8599;</a></p>
   <p class="bio">A law graduate, he worked in London between 2019 and 2022 on a contractual basis with law firms on criminal and asylum matters — drafting, case strategy and litigation support. That work is reflected in United Kingdom Ministry of Justice records and in the extradition judgment of District Judge Samuel Goozée in the Nirav Modi proceedings (Westminster Magistrates' Court, 25 February 2021). He is currently pursuing an LL.M.</p>
+  <figure class="photo">
+    <img id="london" src="london-2020.jpg" alt="Pushp Kumar Sharma in London, 2020" onerror="this.parentNode.classList.add('js-img-hide')" />
+    <figcaption>London, January 2020.</figcaption>
+  </figure>
   <p class="bio">He now appears as Petitioner-in-Person before the High Court of Delhi, the High Court of Punjab &amp; Haryana, and the Supreme Court of India. Of the many proceedings arising from his journalism, the large majority have concluded; the matters set out below are those that remain live, together with two constitutional public-interest petitions.</p>
   <div class="creds">
     <span class="cred">IPI Award · 2011</span>
@@ -156,24 +177,24 @@ const CRIMINAL = [
     docs:[{label:"FIR 373/2009",href:""},{label:"SLP — Supreme Court",href:""},{label:"Section 173 BNSS request",href:""}]
   },
   {
-    docket:"FIR 202/2012 · Case 2130/2016",
+    docket:"FIR 202/2012, PS Kotwali Haridwar · Case 2130/2016 · TP(Crl.) No. 100/2026, Supreme Court",
     title:"Haridwar prosecution (2012)",
     badge:"Before a court", status:"court",
     forum:"Supreme Court of India — transfer petition",
-    nature:"Criminal prosecution; transfer sought to a court of competent jurisdiction.",
-    position:"<strong>Pending — Transfer Petition (Criminal) before the Supreme Court of India.</strong>",
-    facts:"Transfer is sought on grounds set out in the petition.",
-    docs:[{label:"Transfer Petition",href:""}]
+    nature:"Criminal prosecution following the petitioner's investigative story on the disappearance of Baba Ramdev's guru.",
+    position:"<strong>Pending — Transfer Petition (Criminal) No. 100/2026 before the Supreme Court of India, seeking transfer to a court of competent jurisdiction.</strong>",
+    facts:"The FIR followed the petitioner's investigative story <em>'If the Pose Holds'</em> (Outlook–IBN7, October 2012), on the disappearance of Swami Shankardev, the guru of Baba Ramdev, after which the Government ordered a CBI inquiry into the affair (CBI Case No. RC 2(S)/2013). The petitioner's position is that the FIR against him is retaliatory, arising from the same story.",
+    docs:[{label:"Transfer Petition",href:""},{label:"Outlook — \"If the Pose Holds\"",href:"https://outlookindia.com/magazine/story/if-the-pose-holds/282475"}]
   },
   {
-    docket:"FIR 225/2016 · Case 97507/2016",
-    title:"Delhi prosecution (2016)",
+    docket:"FIR 225/2016, PS Kotla Mubarakpur · CR Case 97507/2016, Saket Courts · CRL.M.C. 5691/2022, Delhi High Court",
+    title:"Delhi prosecution (2016) — AYUSH / Milli Gazette RTI story",
     badge:"Before a court", status:"court",
-    forum:"Saket Courts, New Delhi",
-    nature:"Criminal prosecution arising from the petitioner's investigative reporting.",
-    position:"<strong>Pending — discharge application, pressed on the ground that the forensic report is nil.</strong>",
-    facts:"A discharge application is pending before the trial court; it is pressed on the footing that the forensic / scientific report in the matter is nil.",
-    docs:[{label:"Discharge Application",href:""}]
+    forum:"MM, Saket District Courts (South East), New Delhi",
+    nature:"Criminal prosecution arising from the petitioner's investigative reporting for The Milli Gazette.",
+    position:"<strong>Pending — discharge application before the trial court, pressed on the ground that the forensic (FSL) report is nil.</strong> By order dated 19.12.2022 in CRL.M.C. 5691/2022, the High Court of Delhi held that the petitioner's approach to the Court amounted to submission to jurisdiction, and directed him to appear before the trial court to seek cancellation of proceedings under Section 82 Cr.P.C.; he was protected from arrest pursuant to the FIR and the orders dated 10.10.2019 and 29.10.2022 declaring him a Proclaimed Offender.",
+    facts:"The FIR was registered on a complaint by the Ministry of AYUSH concerning a story published in The Milli Gazette (11.03.2016), said to be based on a forged RTI reply; the petitioner's position is that he has been falsely implicated. A chargesheet was filed under Sections 466/469/471/153A(1)/505 IPC. Further investigation concerning the forensic (FSL) report, and the continued absence of the complainant, have caused delay in the trial.",
+    docs:[{label:"Delhi HC Order, 19.12.2022 (CRL.M.C. 5691/2022)",href:""},{label:"Discharge Application",href:""}]
   }
 ];
 
