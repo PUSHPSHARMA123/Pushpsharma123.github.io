@@ -62,8 +62,30 @@ header.masthead{padding-top:clamp(2rem,6vw,4.5rem)}
 .standfirst p{margin:0; font-size:clamp(1.02rem,1vw + .85rem,1.25rem); line-height:1.55}
 .standfirst p em{font-style:italic; color:var(--graphite)}
 
+/* ---------- index ---------- */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.index{margin-top:clamp(3rem,8vw,4.5rem)}
+.idx{list-style:none; margin:0; padding:0}
+.idx li{border-top:1px solid var(--rule)}
+.idx li:first-child{border-top:none}
+.idx a{
+  display:flex; align-items:baseline; gap:.5rem .8rem; padding:.6rem 0;
+  color:var(--ink); border-bottom:none; text-decoration:none;
+}
+.idx a:hover .idx-t, .idx a:focus-visible .idx-t{color:var(--oxblood)}
+.idx-n{font-family:var(--record); font-size:.7rem; color:var(--oxblood); flex:0 0 1.9rem}
+.idx-t{flex:0 1 auto}
+.idx-lead{flex:1 1 1.5rem; min-width:1.5rem; border-bottom:1px dotted var(--rule); transform:translateY(-.3rem)}
+.idx-p{font-family:var(--record); font-size:.62rem; letter-spacing:.13em; text-transform:uppercase; color:var(--graphite); flex:0 0 auto}
+.idx .sealed-tag{color:var(--oxblood)}
+.to-index{font-family:var(--record); font-size:.62rem; letter-spacing:.13em; text-transform:uppercase; border-bottom:none; color:var(--graphite); white-space:nowrap}
+.to-index:hover{color:var(--oxblood)}
+
 /* ---------- parts & heads ---------- */
 .part{margin-top:clamp(3.5rem,9vw,5.5rem)}
+.head{scroll-margin-top:1.25rem}
+.part{scroll-margin-top:1.25rem}
 .part-label{display:flex; align-items:baseline; gap:1rem; margin-bottom:.75rem}
 .part-label .rec{white-space:nowrap}
 .part-label .rule{flex:1}
@@ -174,12 +196,34 @@ footer li{margin:.4rem 0}
   </div>
 </header>
 
+<!-- ============ INDEX ============ -->
+<nav class="index rv" id="index" aria-label="Index">
+  <div class="part-label"><span class="rec">Index</span><div class="rule"></div></div>
+  <ol class="idx">
+    <li><a href="#h1"><span class="idx-n">1</span><span class="idx-t">Journalism</span><span class="idx-lead"></span><span class="idx-p">Part I</span></a></li>
+    <li><a href="#h2"><span class="idx-n">2</span><span class="idx-t">Recognition</span><span class="idx-lead"></span><span class="idx-p">Part I</span></a></li>
+    <li><a href="#h3"><span class="idx-n">3</span><span class="idx-t">Principal investigations</span><span class="idx-lead"></span><span class="idx-p">Part I</span></a></li>
+    <li><a href="#h4"><span class="idx-n">4</span><span class="idx-t">Litigation arising from publication</span><span class="idx-lead"></span><span class="idx-p">Part I</span></a></li>
+    <li><a href="#h5"><span class="idx-n">5</span><span class="idx-t">The account as pleaded</span><span class="idx-lead"></span><span class="idx-p">Part II</span></a></li>
+    <li><a href="#h6"><span class="idx-n">6</span><span class="idx-t">Particulars withheld</span><span class="idx-lead"></span><span class="idx-p sealed-tag">Sealed</span></a></li>
+    <li><a href="#h7"><span class="idx-n">7</span><span class="idx-t">High Court of Delhi</span><span class="idx-lead"></span><span class="idx-p">Part III</span></a></li>
+    <li><a href="#h8"><span class="idx-n">8</span><span class="idx-t">Supreme Court — matters registered</span><span class="idx-lead"></span><span class="idx-p">Part III</span></a></li>
+    <li><a href="#h9"><span class="idx-n">9</span><span class="idx-t">Supreme Court — filing under process</span><span class="idx-lead"></span><span class="idx-p">Part III</span></a></li>
+    <li><a href="#h10"><span class="idx-n">10</span><span class="idx-t">Present status</span><span class="idx-lead"></span><span class="idx-p">Part III</span></a></li>
+    <li><a href="#h11"><span class="idx-n">11</span><span class="idx-t">Legal education and training</span><span class="idx-lead"></span><span class="idx-p">Part IV</span></a></li>
+    <li><a href="#h12"><span class="idx-n">12</span><span class="idx-t">Appearance</span><span class="idx-lead"></span><span class="idx-p">Part IV</span></a></li>
+    <li><a href="#h13"><span class="idx-n">13</span><span class="idx-t">Documents</span><span class="idx-lead"></span><span class="idx-p">Part IV</span></a></li>
+    <li><a href="#h14"><span class="idx-n">14</span><span class="idx-t">Public communications</span><span class="idx-lead"></span><span class="idx-p">Part IV</span></a></li>
+    <li><a href="#rubrics"><span class="idx-n">—</span><span class="idx-t">Standing rubrics</span><span class="idx-lead"></span><span class="idx-p">Foot</span></a></li>
+  </ol>
+</nav>
+
 <!-- ============ PART I ============ -->
 <section class="part rv">
-  <div class="part-label"><span class="rec">Part I</span><div class="rule"></div></div>
+  <div class="part-label"><span class="rec">Part I</span><div class="rule"></div><a class="to-index" href="#index">Index</a></div>
   <h2 class="part-name">Professional record</h2>
 
-  <div class="head">
+  <div class="head" id="h1">
     <div class="n">1</div>
     <div>
       <h3>Journalism</h3>
@@ -188,7 +232,7 @@ footer li{margin:.4rem 0}
     </div>
   </div>
 
-  <div class="head">
+  <div class="head" id="h2">
     <div class="n">2</div>
     <div>
       <h3>Recognition</h3>
@@ -196,7 +240,7 @@ footer li{margin:.4rem 0}
     </div>
   </div>
 
-  <div class="head">
+  <div class="head" id="h3">
     <div class="n">3</div>
     <div>
       <h3>Principal investigations</h3>
@@ -215,7 +259,7 @@ footer li{margin:.4rem 0}
     </div>
   </div>
 
-  <div class="head">
+  <div class="head" id="h4">
     <div class="n">4</div>
     <div>
       <h3>Litigation arising from publication</h3>
@@ -226,22 +270,25 @@ footer li{margin:.4rem 0}
 
 <!-- ============ PART II ============ -->
 <section class="part rv">
-  <div class="part-label"><span class="rec">Part II</span><div class="rule"></div></div>
+  <div class="part-label"><span class="rec">Part II</span><div class="rule"></div><a class="to-index" href="#index">Index</a></div>
   <h2 class="part-name">The 2019 assignment</h2>
 
-  <div class="head">
+  <div class="head" id="h5">
     <div class="n">5</div>
     <div>
-      <h3>Statement of position</h3>
-      <p>That he left India in 2019 in the course of an investigative assignment, and that the intention was never to abscond from the process of law but to serve the public interest.</p>
-      <p class="note">Averment. Source: paragraph 12 of the application before the learned Metropolitan Magistrate, Saket. Not a finding of any court.</p>
+      <h3>The account as pleaded</h3>
+      <p>In 2019 the Petitioner gathered source information as to the availability of evidence against certain fugitive economic offenders who had escaped to Britain — material which, on his case, would unravel a political nexus, shed light on the scam carried out by them while in India, and show how they escaped the process of law here.</p>
+      <p>Through those sources he was in a position to reach the circle around those persons by presenting himself as a political asylum seeker in Britain. To unravel and expose that nexus and to publish it, he left India for Britain undercover in that guise.</p>
+      <p>He states that he has since gathered and holds the evidence, and has fulfilled the purpose for which he left. On arrival in India he will place it before the courts and before the prosecuting agencies, including the Central Bureau of Investigation and the Directorate of Enforcement.</p>
+      <p>His stated intention was never to abscond from the process of law. He approached the High Court for cancellation of the proclaimed-offender status, the non-bailable warrants and the process under Section 82 Cr.P.C., so as to travel to India and join the trial in accordance with law.</p>
+      <p class="note">Averments. Source: paragraphs 5 to 7 of the petition in CRL.M.C. 5691/2022, on the open record of the High Court; certified copy at e-filing reference 5016978-2025. No court has recorded any finding on these averments.</p>
     </div>
   </div>
 
-  <div class="head">
+  <div class="head" id="h6">
     <div class="n">6</div>
     <div>
-      <h3>The assignment itself</h3>
+      <h3>Particulars withheld</h3>
       <figure class="sealed">
         <div class="sealed-bar"><span>Sealed cover</span><span>Not published</span></div>
         <div class="sealed-body">
@@ -250,7 +297,7 @@ footer li{margin:.4rem 0}
           <div class="seal">SUB<br>JUDICE</div>
         </div>
         <figcaption class="note">
-          The particulars of the assignment were placed before the Court in a sealed cover, on the ground that the contents pertain to matters sub judice or under investigation by different agencies. They are withheld here for the same reason, and will be published only when that condition ceases.
+          The particulars — the persons identified, and the evidence gathered — were placed in a sealed cover in the application before the learned Metropolitan Magistrate, Saket, on the ground that the contents pertain to matters sub judice or under investigation by different agencies. They are withheld here for the same reason, and will be published only when that condition ceases. Head 5 states only what is on the open record.
         </figcaption>
       </figure>
     </div>
@@ -259,10 +306,10 @@ footer li{margin:.4rem 0}
 
 <!-- ============ PART III ============ -->
 <section class="part rv">
-  <div class="part-label"><span class="rec">Part III</span><div class="rule"></div></div>
+  <div class="part-label"><span class="rec">Part III</span><div class="rule"></div><a class="to-index" href="#index">Index</a></div>
   <h2 class="part-name">Proceedings</h2>
 
-  <div class="head">
+  <div class="head" id="h7">
     <div class="n">7</div>
     <div>
       <h3>High Court of Delhi</h3>
@@ -281,7 +328,7 @@ footer li{margin:.4rem 0}
     </div>
   </div>
 
-  <div class="head">
+  <div class="head" id="h8">
     <div class="n">8</div>
     <div>
       <h3>Supreme Court of India — matters registered</h3>
@@ -313,7 +360,7 @@ footer li{margin:.4rem 0}
     </div>
   </div>
 
-  <div class="head">
+  <div class="head" id="h9">
     <div class="n">9</div>
     <div>
       <h3>Supreme Court of India — filing under process</h3>
@@ -330,7 +377,7 @@ footer li{margin:.4rem 0}
     </div>
   </div>
 
-  <div class="head">
+  <div class="head" id="h10">
     <div class="n">10</div>
     <div>
       <h3>Present status</h3>
@@ -341,10 +388,10 @@ footer li{margin:.4rem 0}
 
 <!-- ============ PART IV ============ -->
 <section class="part rv">
-  <div class="part-label"><span class="rec">Part IV</span><div class="rule"></div></div>
+  <div class="part-label"><span class="rec">Part IV</span><div class="rule"></div><a class="to-index" href="#index">Index</a></div>
   <h2 class="part-name">Credentials, documents and contact</h2>
 
-  <div class="head">
+  <div class="head" id="h11">
     <div class="n">11</div>
     <div>
       <h3>Legal education and training</h3>
@@ -354,7 +401,7 @@ footer li{margin:.4rem 0}
     </div>
   </div>
 
-  <div class="head">
+  <div class="head" id="h12">
     <div class="n">12</div>
     <div>
       <h3>Appearance</h3>
@@ -363,7 +410,7 @@ footer li{margin:.4rem 0}
     </div>
   </div>
 
-  <div class="head">
+  <div class="head" id="h13">
     <div class="n">13</div>
     <div>
       <h3>Documents</h3>
@@ -377,7 +424,7 @@ footer li{margin:.4rem 0}
     </div>
   </div>
 
-  <div class="head">
+  <div class="head" id="h14">
     <div class="n">14</div>
     <div>
       <h3>Public communications</h3>
@@ -387,7 +434,7 @@ footer li{margin:.4rem 0}
   </div>
 </section>
 
-<footer class="rv">
+<footer class="rv" id="rubrics">
   <span class="rec">Standing rubrics</span>
   <ol>
     <li>Averments made in pleadings are identified as averments. Only Parts III and the orders summarised there are stated as judicial record.</li>
