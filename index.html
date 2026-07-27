@@ -44,7 +44,16 @@
 
   .section-title{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;
     text-transform:uppercase;color:var(--muted);margin:48px 0 4px;padding-top:24px;
-    border-top:1px solid var(--line);}
+    border-top:1px solid var(--line);scroll-margin-top:16px;}
+  .nav{display:flex;flex-wrap:wrap;gap:7px 18px;margin:22px 0 2px;}
+  .nav a{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;
+    border-bottom:1px solid transparent;padding-bottom:2px;}
+  .nav a:hover,.nav a:focus-visible{color:var(--oxblood);border-bottom-color:var(--oxblood);}
+  .coverage{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);margin:0 0 8px;}
+  .coverage a{color:var(--oxblood);text-decoration:none;border-bottom:1px solid rgba(122,31,43,.3);margin:0 14px 4px 6px;display:inline-block;}
+  .coverage a:hover{border-bottom-color:var(--oxblood);}
+  #operation-136{scroll-margin-top:16px;}
 
   main{padding:0 0 30px;}
   .case{border-bottom:1px solid var(--line);}
@@ -99,8 +108,16 @@
 </div>
 <hr class="ribbon" />
 <div class="wrap">
-  <h2 class="section-title" style="border-top:0;padding-top:0;margin-top:34px;">About</h2>
-  <p class="bio">An investigative journalist for over two decades, whose reporting was recognised with the IPI Award (2011). He was a member of the Foreign Press Association, London (2018–2023).</p>
+  <nav class="nav" aria-label="Jump to section">
+    <a href="#about">About</a>
+    <a href="#operation-136">Operation 136</a>
+    <a href="#criminal">Criminal Cases</a>
+    <a href="#pil">Public Interest Litigation</a>
+  </nav>
+  <h2 id="about" class="section-title" style="border-top:0;padding-top:0;margin-top:26px;">About</h2>
+  <p class="bio">An investigative journalist for over two decades, recognised with the International Press Institute (Vienna) Award for Excellence in Journalism (2011) for <em>Rent a Riot</em>, published in <em>Tehelka</em>, which exposed a plan to organise communal violence for money. He was a member of the Foreign Press Association, London (2018–2023).</p>
+  <p id="operation-136" class="bio">His best-known investigation is Cobrapost's <strong>Operation 136</strong> (2018) — a landmark undercover exposé of paid news, described as India's equivalent of the Cambridge Analytica revelations. Working under an alias, he approached the owners and senior management of more than three dozen media houses and documented their willingness to run a paid political and communal campaign ahead of the 2019 general election in exchange for money. Cobrapost released the series in two parts, on 26 March and 25 May 2018; several of the named houses denied the allegations.</p>
+  <p class="coverage">Coverage: <a href="https://thewire.in/media/large-media-houses-seen-striking-deals-for-paid-news-to-promote-hindutva-agenda">The Wire &#8599;</a><a href="https://www.aljazeera.com/programmes/listeningpost/2018/06/cobrapost-sting-indian-media-outlets-paid-news-180602061127433.html">Al Jazeera &#8599;</a><a href="https://en.wikipedia.org/wiki/Pushp_Sharma">Wikipedia &#8599;</a></p>
   <p class="bio">During his years in the United Kingdom he worked on a contractual basis with London law firms on criminal and asylum matters — drafting, case strategy and litigation support. That work is reflected in United Kingdom Ministry of Justice records and in the extradition judgment of District Judge Samuel Goozée in the Nirav Modi proceedings (Westminster Magistrates' Court, 25 February 2021).</p>
   <p class="bio">He now appears as Petitioner-in-Person before the High Court of Delhi, the High Court of Punjab &amp; Haryana, and the Supreme Court of India. Of the many proceedings arising from his journalism, the large majority have concluded; the matters set out below are those that remain live, together with two constitutional public-interest petitions.</p>
   <div class="creds">
@@ -108,19 +125,13 @@
     <span class="cred">Foreign Press Association, London · 2018–2023</span>
     <span class="cred">Nirav Modi extradition · UK judgment, 25 Feb 2021</span>
   </div>
-
-  <h2 class="section-title">About</h2>
-  <div class="about">
-    <p>For over two decades an investigative journalist. He subsequently worked, on a contractual basis, with London-based law firms on criminal and asylum matters — providing drafting, case strategy and litigation support. That work is reflected in United Kingdom Ministry of Justice records and in the judgment of District Judge Samuel Goozée in the Nirav Modi extradition proceedings (25 February 2021).</p>
-    <p>He now appears as petitioner-in-person in matters before the High Court of Punjab &amp; Haryana, the courts at Delhi, and the Supreme Court of India.</p>
-  </div>
 </div>
 
 <div class="wrap">
-  <h2 class="section-title">Ongoing Criminal Proceedings</h2>
+  <h2 id="criminal" class="section-title">Ongoing Criminal Proceedings</h2>
   <main id="crim"></main>
 
-  <h2 class="section-title">Public Interest Litigation · Supreme Court of India</h2>
+  <h2 id="pil" class="section-title">Public Interest Litigation · Supreme Court of India</h2>
   <main id="pil"></main>
 </div>
 
