@@ -7,7 +7,7 @@
 <meta name="description" content="Documented record of investigative work and of proceedings before the Supreme Court of India, the Delhi High Court and the High Court of Punjab &amp; Haryana.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Spectral:ital,wght@0,300;0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
 <style>
 :root{
   --stone:#E6E7E1;
@@ -284,6 +284,54 @@ footer li{margin:.4rem 0}
 }
 .alert-lede{margin:0; color:var(--ink)}
 
+/* ---------- updated information strip ---------- */
+.upd{
+  margin:0 0 clamp(1.1rem,3.4vw,1.6rem);
+  border:1px solid var(--oxblood); border-left:5px solid var(--oxblood);
+  background:rgba(138,43,43,.055);
+  padding:clamp(.85rem,2.6vw,1.15rem) clamp(.9rem,2.8vw,1.25rem);
+}
+.upd-head{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:.45rem .85rem;
+  padding-bottom:.55rem; border-bottom:1px solid rgba(138,43,43,.28);
+}
+.upd-badge{
+  font-family:var(--record); font-weight:600; font-size:.6rem;
+  letter-spacing:.22em; text-transform:uppercase;
+  background:var(--oxblood); color:var(--stone); padding:.24rem .6rem;
+}
+.upd-when{
+  font-family:var(--record); font-size:.63rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--graphite);
+}
+.upd-when b{font-weight:600; color:var(--oxblood)}
+.upd h3{
+  margin:.7rem 0 0; font-family:var(--record); font-weight:600;
+  font-size:clamp(.82rem,2.6vw,.95rem); letter-spacing:.09em;
+  text-transform:uppercase; line-height:1.55; color:var(--oxblood);
+}
+.upd p{margin:.6rem 0 0}
+.upd .cite{
+  display:block; margin:.65rem 0 0;
+  font-family:var(--record); font-size:.7rem; letter-spacing:.05em;
+  color:var(--oxblood); line-height:1.75;
+}
+.upd .upd-note{
+  margin:.75rem 0 0; padding-top:.6rem;
+  border-top:1px solid rgba(138,43,43,.22);
+  font-family:var(--record); font-size:.66rem; letter-spacing:.05em;
+  line-height:1.8; color:var(--graphite);
+}
+.yr-upd{
+  margin:.75rem 0 0; padding:.7rem .85rem;
+  border-left:3px solid var(--oxblood); background:rgba(138,43,43,.05);
+}
+.yr-upd .yr-upd-tag{
+  display:block; font-family:var(--record); font-weight:600; font-size:.6rem;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--oxblood);
+}
+.yr .yr-upd p{margin:.4rem 0 0}
+
 .yr{margin:clamp(1.3rem,4vw,1.8rem) 0 0}
 .yr + .yr{
   padding-top:clamp(1.3rem,3.6vw,1.8rem);
@@ -454,7 +502,7 @@ footer li{margin:.4rem 0}
 <body>
 
 <div class="alert-sticky" id="alertRecall" aria-hidden="true">
-  <a href="#status"><span>Prosecutions pending &mdash; 2009 &middot; 2016</span><span class="go">Read the position &uarr;</span></a>
+  <a href="#status"><span>Prosecutions pending &mdash; 2009 &middot; 2016 &mdash; updated 01.08.2026</span><span class="go">Read the position &uarr;</span></a>
 </div>
 
 <section class="alert" id="status" aria-label="Standing notice — prosecutions pending">
@@ -463,15 +511,28 @@ footer li{margin:.4rem 0}
       <span class="alert-kicker">Standing notice &mdash; read first</span>
       <h2 class="alert-title">Prosecutions instituted against me</h2>
       <div class="alert-meta">
-        <span>Position as on 27.07.2026</span>
+        <span>Position as on 01.08.2026</span>
         <span>Two matters &mdash; 2009 &amp; 2016</span>
         <span>No finding of guilt in either</span>
+        <span>Updated entry &mdash; 2009 matter</span>
       </div>
     </div>
   </div>
 
   <div class="alert-body">
     <div class="alert-inner">
+      <section class="upd" id="update" aria-label="Updated information — 2009 matter">
+        <div class="upd-head">
+          <span class="upd-badge">Updated information</span>
+          <span class="upd-when">Entered <b>01.08.2026</b> &middot; 2009 matter</span>
+        </div>
+        <h3>Investigation now directed against the accused Station House Officer</h3>
+        <p>In the 2009 matter, Police Station Vasant Vihar is officially investigating the matter against the said accused Station House Officer, upon the allegation that the criminal machinery of the State was set in motion to dent the credibility of the then journalist.</p>
+        <p>In parallel, the competent authority has designated an official to investigate the matter, and the diary number in that behalf stands placed on record.</p>
+        <span class="cite">FIR No. 373/2009, Police Station Vasant Vihar, New Delhi &middot; Cr. Case No. 5A/02/2013 (50801/2016), Patiala House Courts, New Delhi</span>
+        <p class="upd-note">Recorded as the position presently obtaining on my record. An investigation is not an adjudication, and nothing stated above is to be read as a finding of any Court against any person.</p>
+      </section>
+
       <p class="alert-lede">Two prosecutions stand instituted at the instance of the State. The position in each is set out below, year by year, and each is tied to a document that can be called for and checked.</p>
 
       <div class="yr">
@@ -485,6 +546,10 @@ footer li{margin:.4rem 0}
             <span class="cite">FIR No. 373/2009, Police Station Vasant Vihar, New Delhi &middot; Cr. Case No. 5A/02/2013 (50801/2016), Patiala House Courts, New Delhi</span>
             <p>The Station House Officer arrayed as accused in this matter &mdash; the same officer arrayed as accused Station House Officer in the Chandigarh sacrilege matter &mdash; omitted to place on record the certificate mandated by Section 65B of the Indian Evidence Act, 1872. The omission goes to the root of the prosecution case: in consequence, the electronic evidence, and the submissions founded upon it, are inadmissible in law.</p>
             <p>Upon retrieval of the digital evidence, sanction for prosecution has been sought against the police officials concerned. The matter remains at the stage of prosecution evidence.</p>
+            <div class="yr-upd">
+              <span class="yr-upd-tag">Updated &middot; 01.08.2026</span>
+              <p>Police Station Vasant Vihar is officially investigating the matter against the said accused Station House Officer, upon the allegation that the criminal machinery of the State was set in motion to dent the credibility of the then journalist. In parallel, the competent authority has designated an official to investigate the matter, and the diary number in that behalf stands placed on record.</p>
+            </div>
             <span class="src">Source &middot; Indian Kanoon</span>
           </div>
           <figure class="case-seal">
