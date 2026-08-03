@@ -284,6 +284,22 @@ footer li{margin:.4rem 0}
 }
 .alert-lede{margin:0; color:var(--ink)}
 
+.notice-lede{
+  margin:0 0 clamp(1.1rem,3.4vw,1.6rem);
+  padding:0 0 clamp(.9rem,2.6vw,1.15rem);
+  border-bottom:1px solid rgba(138,43,43,.28);
+}
+.notice-lede p{
+  margin:0; color:var(--oxblood);
+  font-size:clamp(1.02rem,2.7vw,1.24rem); line-height:1.55;
+}
+.notice-lede p + p{margin-top:.55rem; color:var(--ink); font-size:clamp(.96rem,2.5vw,1.1rem)}
+.notice-lede .qnote{
+  display:block; margin-top:.75rem;
+  font-family:var(--record); font-size:.66rem; letter-spacing:.05em;
+  line-height:1.75; color:var(--graphite); text-transform:none;
+}
+
 /* ---------- updated information strip ---------- */
 .upd{
   margin:0 0 clamp(1.1rem,3.4vw,1.6rem);
@@ -521,6 +537,12 @@ footer li{margin:.4rem 0}
 
   <div class="alert-body">
     <div class="alert-inner">
+      <div class="notice-lede">
+        <p>Fifty-four prosecutions arising from my reporting stand quashed, withdrawn or settled; those that remain are set out below and are contested. That is the price of adversarial journalism.</p>
+        <p><em>Operation 136</em> (2018) turned that scrutiny on the press itself — reporting carried by the BBC, Al Jazeera, The Hindu, The Wire and Newslaundry, and which Reporters Without Borders defended when proceedings followed.</p>
+        <span class="qnote">The figure of fifty-four is stated from my own record and is not vouched by any document reproduced on this page. The published reports and the case note are linked at heads 6 and 8.</span>
+      </div>
+
       <section class="upd" id="update" aria-label="Updated information — 2009 matter">
         <div class="upd-head">
           <span class="upd-badge">Updated information</span>
