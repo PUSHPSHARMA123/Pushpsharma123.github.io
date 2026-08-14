@@ -513,6 +513,117 @@ footer li{margin:.4rem 0}
   color:var(--graphite); line-height:1.6; margin:0;
 }
 @media print{ .contact form{display:none} }
+
+/* ---------- live matter (current issue) ---------- */
+.live{
+  margin:clamp(2.4rem,7vw,3.6rem) 0 0;
+  border:1px solid var(--ink);
+  background:var(--vellum);
+}
+.live-bar{
+  background:var(--ink); color:var(--stone);
+  padding:.7rem clamp(1rem,3.2vw,1.6rem);
+  display:flex; flex-wrap:wrap; gap:.35rem 1.1rem; align-items:baseline;
+}
+.live-kicker{
+  font-family:var(--record); font-size:.62rem; letter-spacing:.2em;
+  text-transform:uppercase; color:#E9C4C4;
+}
+.live-when{font-family:var(--record); font-size:.62rem; letter-spacing:.13em; opacity:.72}
+.live-when b{color:#fff; font-weight:600}
+.live-body{padding:clamp(1.2rem,3.6vw,2rem) clamp(1rem,3.2vw,1.6rem) clamp(1.4rem,4vw,2.2rem)}
+.live h2{
+  margin:0; font-family:var(--record); font-weight:500;
+  font-size:clamp(1rem,2.9vw,1.4rem); letter-spacing:.05em; line-height:1.45;
+  text-transform:uppercase;
+}
+.live h2 span{
+  display:block; margin-top:.6rem; font-family:var(--prose); font-weight:300;
+  font-size:.82em; letter-spacing:0; text-transform:none; color:var(--graphite); font-style:italic;
+}
+.live .lede{margin:1.1rem 0 0; font-size:clamp(1.02rem,1vw + .85rem,1.16rem); line-height:1.6}
+.live h4{
+  margin:1.8rem 0 .5rem; font-family:var(--record); font-weight:500;
+  font-size:.64rem; letter-spacing:.19em; text-transform:uppercase; color:var(--oxblood);
+}
+.live p{margin:.7rem 0 0}
+
+/* chronology */
+.chrono{list-style:none; margin:.4rem 0 0; padding:0}
+.chrono li{
+  border-top:1px solid var(--rule); padding:.75rem 0 .8rem;
+  display:grid; grid-template-columns:5.6rem 1fr; gap:.2rem .95rem;
+}
+.chrono li:first-child{border-top:none}
+.chrono .d{font-family:var(--record); font-size:.68rem; letter-spacing:.06em; color:var(--oxblood); padding-top:.18rem}
+.chrono .w b{font-weight:600}
+.chrono .w em{font-style:italic; color:var(--graphite)}
+.chrono .sub{display:block; margin-top:.3rem; font-size:.86rem; color:var(--graphite); line-height:1.55}
+@media (max-width:30rem){
+  .chrono li{grid-template-columns:1fr}
+  .chrono .d{padding-top:0}
+}
+
+/* the two questions */
+.qq{margin:.5rem 0 0; padding:0; list-style:none; counter-reset:qq}
+.qq li{
+  position:relative; margin:.8rem 0 0; padding:.85rem 1rem .9rem 2.6rem;
+  background:var(--stone); border-left:2px solid var(--oxblood);
+  font-style:italic; line-height:1.55;
+}
+.qq li::before{
+  counter-increment:qq; content:"(" counter(qq, lower-roman) ")";
+  position:absolute; left:.9rem; top:.85rem;
+  font-family:var(--record); font-style:normal; font-size:.66rem;
+  letter-spacing:.06em; color:var(--oxblood);
+}
+
+/* served-on table */
+.served{width:100%; border-collapse:collapse; margin:.5rem 0 0; font-size:.88rem}
+.served th, .served td{
+  text-align:left; padding:.5rem .6rem .5rem 0;
+  border-top:1px solid var(--rule); vertical-align:top;
+}
+.served th{
+  font-family:var(--record); font-weight:500; font-size:.6rem;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--graphite);
+  border-top:none; padding-top:0;
+}
+.served td.em{font-family:var(--record); font-size:.76rem; color:var(--graphite); word-break:break-all}
+
+/* documents + video row */
+.live-grid{display:grid; grid-template-columns:1fr; gap:1.4rem; margin-top:.6rem}
+@media (min-width:52rem){ .live-grid{grid-template-columns:1.15fr 1fr; gap:2rem; align-items:start} }
+.live-grid > *{min-width:0}
+.filelist{list-style:none; margin:.4rem 0 0; padding:0}
+.filelist li{border-top:1px solid var(--rule)}
+.filelist li:first-child{border-top:none}
+.filelist a{
+  display:flex; gap:.7rem; align-items:baseline; padding:.65rem 0;
+  color:var(--ink); border-bottom:none; text-decoration:none;
+}
+.filelist a:hover .fl-t, .filelist a:focus-visible .fl-t{color:var(--oxblood)}
+.fl-k{font-family:var(--record); font-size:.58rem; letter-spacing:.13em; color:var(--oxblood); flex:0 0 2.6rem; text-transform:uppercase}
+.fl-t{flex:1 1 auto; line-height:1.45}
+.fl-t small{display:block; color:var(--graphite); font-size:.8rem; margin-top:.12rem}
+
+.live .tape{margin:0}
+.live .tape .scr{display:block; position:relative; border-bottom:none; background:var(--stone)}
+.live .tape img{width:100%; aspect-ratio:16/9; object-fit:cover; display:block;
+  filter:grayscale(1) contrast(1.05); transition:filter .35s ease}
+.live .tape .scr:hover img, .live .tape .scr:focus-visible img{filter:grayscale(0) contrast(1)}
+
+.live .foot{
+  margin-top:1.6rem; padding-top:.9rem; border-top:1px solid var(--rule);
+  font-size:.84rem; color:var(--graphite); line-height:1.6;
+}
+.live-flag{
+  display:inline-block; margin-left:.5rem; padding:.12rem .45rem;
+  background:var(--oxblood); color:#fff; border-radius:2px;
+  font-family:var(--record); font-size:.55rem; letter-spacing:.14em; text-transform:uppercase;
+  vertical-align:.12em;
+}
+
 </style>
 </head>
 <body>
@@ -666,12 +777,129 @@ footer li{margin:.4rem 0}
   </div>
 </header>
 
+<!-- ================= LIVE MATTER — PANJAB UNIVERSITY ================= -->
+<section class="live rv" id="live" aria-label="Current matter — Panjab University and Section 72">
+  <div class="live-bar">
+    <span class="live-kicker">Current matter &mdash; open</span>
+    <span class="live-when">Representation served <b>14.08.2026</b> &middot; reply due within four weeks</span>
+  </div>
+
+  <div class="live-body">
+    <h2>Panjab University: who may rewrite the Senate?
+      <span>Three notifications in ten days, and a question of law put to the Union Government before any Court is approached.</span>
+    </h2>
+
+    <p class="lede">In October and November 2025 the Central Government issued, rescinded, reissued and again rescinded a set of directions that would have remade the governing bodies of Panjab University &mdash; not by amending the Punjab University Act, 1947 in Parliament, but by notification under Section 72 of the Punjab Reorganisation Act, 1966. The notifications are gone. The question of power is not.</p>
+
+    <h4>What the notifications did</h4>
+    <ol class="chrono">
+      <li>
+        <span class="d">28.10.2025</span>
+        <span class="w"><b>S.O. 4933(E)</b> &mdash; directions issued under Section 72, to take effect <em>as from the date of issue of this notification</em>.
+          <span class="sub">Ordinary Fellows capped at twenty-four, with the election of any Ordinary Fellow made <em>subject to the approval of the Chancellor</em>; section 14 omitted; sections 19 and 20 substituted, vesting executive government in a Syndicate of the Vice-Chancellor as Chairperson, the Secretary (Higher Education) Government of India, the Directors of Public Instruction for Punjab and Chandigarh, one Senate member nominated by the Chancellor, and ten members nominated by the Vice-Chancellor; section 37 omitted; and the Schedule of ex officio Fellows replaced with a list of seven. Published at Gazette No. 4782 of 30.10.2025, CG-DL-E-01112025-267323 &middot; F. No. 2-6/2021-U.II.</span>
+        </span>
+      </li>
+      <li>
+        <span class="d">04.11.2025</span>
+        <span class="w"><b>S.O. 5022(E)</b> &mdash; rescinds S.O. 4933(E).</span>
+      </li>
+      <li>
+        <span class="d">04.11.2025</span>
+        <span class="w"><b>S.O. 5023(E)</b> &mdash; reimposes the same modifications on the same day, but to take effect <em>from the date, as appointed by the Central Government</em>.
+          <span class="sub">The substance is identical to S.O. 4933(E). What changes is commencement: immediate effect is replaced by a date left to be appointed. The restructuring is not withdrawn so much as held in suspense.</span>
+        </span>
+      </li>
+      <li>
+        <span class="d">07.11.2025</span>
+        <span class="w"><b>S.O. 5063(E)</b> &mdash; rescinds S.O. 5023(E), restoring the position as it stood before 28.10.2025.</span>
+      </li>
+    </ol>
+
+    <h4>Why it still matters</h4>
+    <p>Section 72(1) permits the Central Government to issue <em>directions</em> for the continued functioning of the University. Section 72(2) permits any such direction to provide that the governing law shall have effect <em>subject to such exceptions and modifications as may be specified in the direction</em>. Neither sub-section says how far a &ldquo;modification&rdquo; may go. In <em>Rajnarain Singh</em> v. <em>Chairman, Patna Administration Committee</em>, AIR 1954 SC 569, construing comparable language, the Supreme Court held that a power of modification cannot be used to alter the essential features or policy of the law being modified. Whether that principle governs Section 72 has never been decided.</p>
+    <p>Because the notifications were withdrawn, no Court has ruled on the limits of the power. The power therefore remains available, on the same terms, to be exercised again &mdash; by this Government or any other.</p>
+
+    <h4>The two questions put to the Union</h4>
+    <ul class="qq">
+      <li>Whether the power to make &lsquo;exceptions and modifications&rsquo; under Section 72(2) of the Punjab Reorganisation Act, 1966, extends to altering the essential features or legislative policy of the statutory governance structure of Panjab University, including the elected/representative character of its Senate and Syndicate?</li>
+      <li>Whether Section 72 permits the Central Government to alter the statutory governance structure in a manner that enables the Government of the day, irrespective of the political party in office, to materially influence or control the composition of the University&rsquo;s governing institutions through nomination or lateral induction?</li>
+    </ul>
+    <p>The representation asks that the answer be given by a duly authorised and sworn affidavit or verified statement, setting out the express and implied legal limits of the power. It does not assert that the 2025 notifications were beyond power; it asks the Union to state where the boundary lies, before any Court is moved.</p>
+
+    <h4>Served on</h4>
+    <table class="served">
+      <thead><tr><th scope="col">Authority</th><th scope="col">Address</th></tr></thead>
+      <tbody>
+        <tr><td>Secretary, Ministry of Education, Department of Higher Education</td><td class="em">secy.dhe@nic.in</td></tr>
+        <tr><td>Secretary, Ministry of Home Affairs</td><td class="em">dircoord-mha@nic.in</td></tr>
+        <tr><td>Governor of Punjab &amp; Administrator, Union Territory of Chandigarh</td><td class="em">admr-chd@nic.in</td></tr>
+        <tr><td>Principal Secretary to the Governor of Punjab</td><td class="em">sectogovernor@punjab.gov.in</td></tr>
+        <tr><td>Chief Secretary, Government of Punjab</td><td class="em">cs@punjab.gov.in</td></tr>
+        <tr><td>Chief Secretary, Chandigarh Administration</td><td class="em">cs-chd@chd.gov.in</td></tr>
+        <tr><td>Registrar, Panjab University &mdash; for the Chancellor&rsquo;s office</td><td class="em">regr@pu.ac.in</td></tr>
+      </tbody>
+    </table>
+
+    <div class="live-grid">
+      <div>
+        <h4>Documents</h4>
+        <ul class="filelist">
+          <li>
+            <a href="Representation_Consolidated_with_Annexures_Paginated.pdf" target="_blank" rel="noopener">
+              <span class="fl-k">PDF</span>
+              <span class="fl-t">Representation dated 14.08.2026, with annexures
+                <small>Twenty-one pages, paginated &mdash; the representation, and the Gazette notifications relied upon.</small>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="REPRESENTATION.pdf" target="_blank" rel="noopener">
+              <span class="fl-k">PDF</span>
+              <span class="fl-t">Record of transmission, 14.08.2026
+                <small>The email as sent, showing the addressees and the time of despatch.</small>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="267323.pdf" target="_blank" rel="noopener">
+              <span class="fl-k">Gaz</span>
+              <span class="fl-t">S.O. 4933(E) dated 28.10.2025
+                <small>The Gazette of India, Extraordinary, Part II&mdash;Section 3&mdash;Sub-section (ii), No. 4782.</small>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>On the record<span class="live-flag">New</span></h4>
+        <figure class="tape">
+          <a class="scr" href="https://youtu.be/D4tPBvDDJYU" target="_blank" rel="noopener" aria-label="Watch on YouTube: Panjab University and Section 72">
+            <img src="https://i.ytimg.com/vi/D4tPBvDDJYU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+            <span class="play" aria-hidden="true">
+              <svg viewBox="0 0 68 48" role="presentation" focusable="false"><path class="yt-bg" d="M66.52 7.74a8.55 8.55 0 0 0-6.02-6.05C55.18.25 34 .25 34 .25s-21.18 0-26.5 1.44a8.55 8.55 0 0 0-6.02 6.05A89.6 89.6 0 0 0 0 24a89.6 89.6 0 0 0 1.48 16.26 8.55 8.55 0 0 0 6.02 6.05C12.82 47.75 34 47.75 34 47.75s21.18 0 26.5-1.44a8.55 8.55 0 0 0 6.02-6.05A89.6 89.6 0 0 0 68 24a89.6 89.6 0 0 0-1.48-16.26z"/><path class="yt-tri" d="M27.2 34.4 45.6 24 27.2 13.6z"/></svg>
+            </span>
+          </a>
+          <figcaption>
+            <span class="src">Pushp Sharma</span>
+            <span class="hl"><a href="https://youtu.be/D4tPBvDDJYU" target="_blank" rel="noopener">Panjab University and Section 72 &mdash; the question put to the Union</a></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <p class="foot">This is a pre-litigation representation, not a pleading. Nothing on this page asserts that any notification was unlawful; the purpose is to obtain the Union Government&rsquo;s stated position on the limits of Section 72. If no response is received within four weeks, or if the response does not address the questions above, the matter may be placed before the High Court of Punjab &amp; Haryana under Article 226. The Gazette notifications are reproduced as published. This entry will be updated when a reply is received.</p>
+  </div>
+</section>
+
+
 <!-- ================= CHANDIGARH ================= -->
 <div class="panel" id="panel-chd" role="tabpanel" aria-labelledby="tab-chd">
 
 <nav class="index rv" id="index-chd" aria-label="Index — Chandigarh">
   <div class="part-label"><span class="rec">Index — Chandigarh</span><div class="rule"></div></div>
   <ol class="idx">
+    <li><a href="#live"><span class="idx-n">&#9679;</span><span class="idx-t">Panjab University &mdash; Section 72 <span class="live-flag">Open</span></span><span class="idx-lead"></span><span class="idx-p">Current</span></a></li>
     <li><a href="#c1"><span class="idx-n">1</span><span class="idx-t">Journalism</span><span class="idx-lead"></span><span class="idx-p">Part I</span></a></li>
     <li><a href="#c2"><span class="idx-n">2</span><span class="idx-t">Recognition</span><span class="idx-lead"></span><span class="idx-p">Part I</span></a></li>
     <li><a href="#c3"><span class="idx-n">3</span><span class="idx-t">Principal investigations</span><span class="idx-lead"></span><span class="idx-p">Part I</span></a></li>
