@@ -603,6 +603,42 @@ footer li{margin:.4rem 0}
   color:var(--ink); border-bottom:none; text-decoration:none;
 }
 .filelist a:hover .fl-t, .filelist a:focus-visible .fl-t{color:var(--oxblood)}
+.filelist button.viewonly{
+  all:unset; display:flex; gap:.7rem; align-items:baseline; padding:.65rem 0;
+  color:var(--ink); cursor:pointer; width:100%; font:inherit;
+}
+.filelist button.viewonly:hover .fl-t, .filelist button.viewonly:focus-visible .fl-t{color:var(--oxblood)}
+.fl-vo{
+  display:inline-block; margin-top:.3rem; font-family:var(--record); font-size:.58rem;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--oxblood);
+  border:1px solid var(--oxblood); padding:.1rem .4rem;
+}
+
+/* ---------- view-only document modal ---------- */
+.docmodal{position:fixed; inset:0; z-index:80; display:none}
+.docmodal.open{display:block}
+.docmodal-backdrop{position:absolute; inset:0; background:rgba(21,23,28,.72)}
+.docmodal-panel{
+  position:relative; margin:clamp(1.2rem,4vw,3rem) auto; max-width:52rem;
+  height:calc(100vh - clamp(2.4rem,8vw,6rem)); background:var(--vellum);
+  border:1px solid var(--ink); display:flex; flex-direction:column;
+}
+.docmodal-bar{
+  background:var(--ink); color:var(--stone); padding:.7rem 1rem;
+  display:flex; justify-content:space-between; align-items:baseline; gap:1rem;
+  font-family:var(--record); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+}
+.docmodal-bar span.note{opacity:.75; text-transform:none; letter-spacing:0; font-size:.72rem}
+.docmodal-close{
+  all:unset; cursor:pointer; color:var(--stone); font-family:var(--record);
+  font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; border:1px solid rgba(230,231,225,.5);
+  padding:.25rem .6rem;
+}
+.docmodal-close:hover{border-color:var(--stone)}
+.docmodal-frame-wrap{flex:1; position:relative; overflow:hidden}
+.docmodal-frame-wrap iframe{width:100%; height:100%; border:0; display:block}
+.docmodal-shield{position:absolute; inset:0; background:transparent}
+@media (max-width:34rem){ .docmodal-panel{margin:0; height:100vh; max-width:none} }
 .fl-k{font-family:var(--record); font-size:.58rem; letter-spacing:.13em; color:var(--oxblood); flex:0 0 2.6rem; text-transform:uppercase}
 .fl-t{flex:1 1 auto; line-height:1.45}
 .fl-t small{display:block; color:var(--graphite); font-size:.8rem; margin-top:.12rem}
@@ -827,7 +863,7 @@ footer li{margin:.4rem 0}
     <p>The representation asks that the answer be given by a duly authorised and sworn affidavit or verified statement, setting out the express and implied legal limits of the power. It does not assert that the 2025 notifications were beyond power; it asks the Union to state where the boundary lies, before any Court is moved.</p>
 
     <h4>Future course of action</h4>
-    <p>If no substantive reply is received within four weeks of service &mdash; by <strong>11.09.2026</strong> &mdash; or if the reply received does not address the two questions set out above, the matter is proposed to be placed before the High Court of Punjab &amp; Haryana under Article 226 of the Constitution, seeking the Court&rsquo;s determination of the scope of the modification power under Section 72.</p>
+    <p>If no substantive reply is received within one month of service &mdash; by <strong>14.09.2026</strong> &mdash; or if the reply received does not address the two questions set out above, the matter is proposed to be placed before the High Court of Punjab &amp; Haryana under Article 226 of the Constitution, seeking the Court&rsquo;s determination of the scope of the modification power under Section 72.</p>
     <p>This step is contingent, not pre-decided. The representation remains, in the first instance, an invitation to the Union Government to state its own position before any Court is asked to.</p>
 
     <h4>An invitation</h4>
@@ -861,12 +897,13 @@ footer li{margin:.4rem 0}
             </a>
           </li>
           <li>
-            <a href="REPRESENTATION.pdf" target="_blank" rel="noopener">
+            <button type="button" class="viewonly" data-doc-src="REPRESENTATION.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=1" data-doc-title="Record of transmission, 14.08.2026">
               <span class="fl-k">PDF</span>
               <span class="fl-t">Record of transmission, 14.08.2026
                 <small>The email as sent, showing the addressees and the time of despatch.</small>
+                <span class="fl-vo">View only &middot; no download</span>
               </span>
-            </a>
+            </button>
           </li>
           <li>
             <a href="267323.pdf" target="_blank" rel="noopener">
@@ -1814,6 +1851,21 @@ footer li{margin:.4rem 0}
 </footer>
 
 </div>
+
+<div class="docmodal" id="docModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="docmodal-backdrop" data-doc-close></div>
+  <div class="docmodal-panel">
+    <div class="docmodal-bar">
+      <span id="docModalTitle">Document</span>
+      <span class="note">View only &mdash; download and printing are disabled in this window</span>
+      <button type="button" class="docmodal-close" data-doc-close>Close &times;</button>
+    </div>
+    <div class="docmodal-frame-wrap">
+      <iframe id="docModalFrame" title="Document viewer" src=""></iframe>
+      <div class="docmodal-shield" oncontextmenu="return false"></div>
+    </div>
+  </div>
+</div>
 <script>
 document.documentElement.classList.add('js');
 (function(){
@@ -1835,6 +1887,46 @@ document.documentElement.classList.add('js');
     entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
   }, {rootMargin:'0px 0px -8% 0px', threshold:0.05});
   all.forEach(function(e){io.observe(e)});
+})();
+</script>
+
+<script>
+/* view-only document modal */
+(function(){
+  var modal = document.getElementById('docModal');
+  var frame = document.getElementById('docModalFrame');
+  var title = document.getElementById('docModalTitle');
+  if(!modal || !frame) return;
+
+  function open(src, label){
+    frame.src = src;
+    title.textContent = label || 'Document';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('button.viewonly[data-doc-src]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      open(btn.getAttribute('data-doc-src'), btn.getAttribute('data-doc-title'));
+    });
+  });
+  modal.querySelectorAll('[data-doc-close]').forEach(function(el){
+    el.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('open')) close();
+    /* best-effort: block Ctrl/Cmd+S and Ctrl/Cmd+P while the viewer is open */
+    if(modal.classList.contains('open') && (e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p')){
+      e.preventDefault();
+    }
+  });
 })();
 </script>
 
