@@ -243,16 +243,30 @@ footer li{margin:.4rem 0}
 .tape .hl a{border-bottom:1px solid rgba(21,23,28,.18)}
 @media (prefers-reduced-motion:reduce){ .tape img{transition:none} }
 
-/* ---------- X / Twitter card thumbnail ---------- */
-.tape .xthumb{
+/* ---------- link-preview card (WhatsApp-style) ---------- */
+.lcards{display:grid; grid-template-columns:repeat(auto-fill,minmax(15rem,1fr)); gap:1.4rem 1.15rem; margin:1rem 0 .9rem}
+.lcard{margin:0; border:1px solid var(--rule); background:var(--vellum); overflow:hidden}
+.lcard a.shot{display:block; position:relative; border-bottom:none}
+.lcard .thumb{width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:#111}
+.lcard .badge{
+  position:absolute; right:.55rem; bottom:.55rem; display:flex; align-items:center; gap:.3rem;
+  background:rgba(0,0,0,.72); padding:.28rem .55rem; border-radius:3px;
+}
+.lcard .badge svg{width:1.05rem; height:auto; display:block}
+.lcard .badge span{font-family:var(--record); font-size:.62rem; letter-spacing:.06em; color:#fff; font-weight:600}
+.lcard .body{padding:.75rem .9rem .85rem}
+.lcard .ltitle{display:block; font-family:var(--prose); font-weight:600; font-size:.98rem; line-height:1.35; color:var(--ink)}
+.lcard a.shot:hover ~ .body .ltitle, .lcard:hover .ltitle{color:var(--oxblood)}
+.lcard .ldomain{
+  display:flex; align-items:center; gap:.35rem; margin-top:.5rem;
+  font-family:var(--record); font-size:.68rem; letter-spacing:.04em; color:var(--graphite);
+}
+.lcard .ldomain svg{width:.85rem; height:.85rem; flex:0 0 auto; opacity:.7}
+.lcard.xcard .thumb-fallback{
   width:100%; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;
-  gap:.55rem; background:#0B0C0E; border:1px solid var(--rule); transition:background .4s ease;
+  background:#000;
 }
-.tape .scr:hover .xthumb, .tape .scr:focus-visible .xthumb{background:#000}
-.tape .xthumb svg{width:1.5rem; height:auto; fill:#F1F2ED; flex:0 0 auto}
-.tape .xthumb .xlabel{
-  font-family:var(--record); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:#F1F2ED;
-}
+.lcard.xcard .thumb-fallback svg{width:2.4rem; height:auto; fill:#fff}
 
 
 /* ---------- disclaimer ---------- */
@@ -1726,34 +1740,40 @@ footer li{margin:.4rem 0}
       <p><strong>Brief.</strong> A closed FIR can be subjected to further investigation with prior judicial permission, but the law does not clearly prescribe how many times it may be reopened.</p>
 
       <h5 class="tape-grp">Related viewing</h5>
-      <div class="tapes">
-        <figure class="tape">
-          <a class="scr" href="https://youtu.be/A8dIr0BAYVw" target="_blank" rel="noopener" aria-label="Watch on YouTube: FIR Recurrence — Where Does Further Investigation End?">
-            <img src="https://i.ytimg.com/vi/A8dIr0BAYVw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/A8dIr0BAYVw/mqdefault.jpg';">
-            <span class="play" aria-hidden="true">
-              <svg viewBox="0 0 68 48" role="presentation" focusable="false"><path class="yt-bg" d="M66.52 7.74a8.55 8.55 0 0 0-6.02-6.05C55.18.25 34 .25 34 .25s-21.18 0-26.5 1.44a8.55 8.55 0 0 0-6.02 6.05A89.6 89.6 0 0 0 0 24a89.6 89.6 0 0 0 1.48 16.26 8.55 8.55 0 0 0 6.02 6.05C12.82 47.75 34 47.75 34 47.75s21.18 0 26.5-1.44a8.55 8.55 0 0 0 6.02-6.05A89.6 89.6 0 0 0 68 24a89.6 89.6 0 0 0-1.48-16.26z"/><path class="yt-tri" d="M27.2 34.4 45.6 24 27.2 13.6z"/></svg>
+      <div class="lcards">
+        <figure class="lcard">
+          <a class="shot" href="https://youtu.be/A8dIr0BAYVw" target="_blank" rel="noopener" aria-label="Watch on YouTube: FIR Recurrence — Where Does Further Investigation End?">
+            <img class="thumb" src="https://i.ytimg.com/vi/A8dIr0BAYVw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/A8dIr0BAYVw/mqdefault.jpg';">
+            <span class="badge" aria-hidden="true">
+              <svg viewBox="0 0 68 48" role="presentation" focusable="false"><path fill="#FF0000" d="M66.52 7.74a8.55 8.55 0 0 0-6.02-6.05C55.18.25 34 .25 34 .25s-21.18 0-26.5 1.44a8.55 8.55 0 0 0-6.02 6.05A89.6 89.6 0 0 0 0 24a89.6 89.6 0 0 0 1.48 16.26 8.55 8.55 0 0 0 6.02 6.05C12.82 47.75 34 47.75 34 47.75s21.18 0 26.5-1.44a8.55 8.55 0 0 0 6.02-6.05A89.6 89.6 0 0 0 68 24a89.6 89.6 0 0 0-1.48-16.26z"/><path fill="#fff" d="M27.2 34.4 45.6 24 27.2 13.6z"/></svg>
+              <span>YouTube</span>
             </span>
           </a>
-          <figcaption>
-            <span class="src">YouTube</span>
-            <span class="hl"><a href="https://youtu.be/A8dIr0BAYVw" target="_blank" rel="noopener">FIR Recurrence &mdash; Where Does Further Investigation End?</a></span>
+          <figcaption class="body">
+            <a class="ltitle" href="https://youtu.be/A8dIr0BAYVw" target="_blank" rel="noopener">FIR Recurrence: PIL</a>
+            <span class="ldomain">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>
+              youtu.be
+            </span>
           </figcaption>
         </figure>
       </div>
       <p class="note">The recording is hosted on YouTube and opens on that platform; nothing is embedded, hosted or reproduced here.</p>
 
       <h5 class="tape-grp">Related post</h5>
-      <div class="tapes">
-        <figure class="tape">
-          <a class="scr" href="https://x.com/pushp_sre/status/2088630586235826510?s=46" target="_blank" rel="noopener" aria-label="View post on X: @pushp_sre">
-            <span class="xthumb">
-              <svg viewBox="0 0 24 24" role="presentation" focusable="false" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.68L23.3 22h-6.85l-5.37-6.62L4.98 22H1.87l8.13-9.29L1 2h7.02l4.85 6.05L18.9 2Zm-1.2 18h1.9L7.4 3.9H5.36L17.7 20Z"/></svg>
-              <span class="xlabel">View on X</span>
+      <div class="lcards">
+        <figure class="lcard xcard">
+          <a class="shot" href="https://x.com/pushp_sre/status/2088630586235826510?s=46" target="_blank" rel="noopener" aria-label="View post on X: @pushp_sre">
+            <span class="thumb-fallback" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M18.9 2H22l-7.6 8.68L23.3 22h-6.85l-5.37-6.62L4.98 22H1.87l8.13-9.29L1 2h7.02l4.85 6.05L18.9 2Zm-1.2 18h1.9L7.4 3.9H5.36L17.7 20Z"/></svg>
             </span>
           </a>
-          <figcaption>
-            <span class="src">X (Twitter)</span>
-            <span class="hl"><a href="https://x.com/pushp_sre/status/2088630586235826510?s=46" target="_blank" rel="noopener">@pushp_sre</a></span>
+          <figcaption class="body">
+            <a class="ltitle" href="https://x.com/pushp_sre/status/2088630586235826510?s=46" target="_blank" rel="noopener">@pushp_sre on X</a>
+            <span class="ldomain">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>
+              x.com
+            </span>
           </figcaption>
         </figure>
       </div>
